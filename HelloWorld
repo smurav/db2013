@@ -6,3 +6,10 @@ Change user.email back, to Vitaly Rybnikov's. First BUG with GitHub - fixed
 Bug with date - my commites dated with 20.02.13, but it's 21.02.13
 Set date : 24.02.13 11:13
 
+On GitHub it's now look like commit from 23.02.13. Why?!
+Date of commit relate to date of locale PC,
+and Commiter is relate to user.email settings on locale Machine.
+Hmmm...Something wrong!
+Set date to 22.02.13 11:31
+
+
