@@ -1,4 +1,11 @@
 <?xml version="1.1" encoding='UTF-8' ?>
 <mephi>
-НИЯУ МИФИ
+    <title>"НИЯУ" МИФИ</title>
+    <faculties>
+        <faculty name="K">
+            <group name="k6-361">
+                <student>Рыбников Виталий</student>
+            </group>
+        </faculty>
+    </faculties>
 </mephi>
