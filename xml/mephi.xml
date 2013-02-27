@@ -2,6 +2,11 @@
 <mephi>
 	<title>НИЯУ МИФИ</title>
 		<faculties>
-			
+			<faculty>
+				<f_name>K</f_name>
+				<departments>
+				
+				</departments>	
+			</faculty>
 		</faculties>
 </mephi>
