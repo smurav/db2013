@@ -1,24 +1,24 @@
 <?xml version="1.1" encoding='UTF-8' ?>
 <mephi>
 	<title>НИЯУ МИФИ</title>
-		<faculties>
-			<faculty>
-				<f_name>K</f_name>
-				<departments>
-					<department>
-						<d_name>36</d_name>
-						<groups>
-							<group>
-								<g_name>К6-361</g_name>
-								<students>
-									<student>
-									
-									</student>
-								</students>
-							</group>
-						</groups>
-					</department>
-				</departments>	
-			</faculty>
-		</faculties>
+	<faculties>
+		<faculty>
+			<f_name>K</f_name>
+			<departments>
+				<department>
+					<d_name>36</d_name>
+					<groups>
+						<group>
+							<g_name>К6-361</g_name>
+							<students>
+								<student>
+									<s_name>Бузанова Виктория</s_name>
+								</student>
+							</students>
+						</group>
+					</groups>
+				</department>
+			</departments>	
+		</faculty>
+	</faculties>
 </mephi>
