@@ -3,8 +3,11 @@
 <title>НИЯУ МИФИ</title>
   <faculty> 
   <title>Факультет K</title>
-  <kafedra>
-  <title>K-36</title>
-  </kafedra> 
+    <kafedra>
+    <title>K-36</title>
+      <group>
+      <title>K6-361</title>
+      </group>
+    </kafedra> 
   </faculty>
 </mephi>
