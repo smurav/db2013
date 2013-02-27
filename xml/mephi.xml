@@ -2,11 +2,13 @@
 <university name="НИЯУ МИФИ">
 	<department name="K">
 		<chair number="36">
-			<student number="9">
-				<name>
-					Толстов Дмитрий
-				</name>
-			</student>
+			<group name="K6-361">
+				<student number="9">
+					<name>
+						Толстов Дмитрий
+					</name>
+				</student>
+			</group>	
 		</chair>
 	</department>
 
