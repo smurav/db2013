@@ -1,11 +1,11 @@
 <?xml version="1.1" encoding='UTF-8' ?>
 <mephi>
  НИЯУ МИФИ
-<faculty>
-K
-<kafedra>
-36
-<group>
+<faculty >
+К
+<kafedra name="Информационные системы и технологии">
+361
+<group name="Kx-36x">
 K6-361
 <student>
 Мельник Леонид Андреевич 
