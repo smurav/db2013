@@ -1,4 +1,14 @@
 <?xml version="1.1" encoding='UTF-8' ?>
 <mephi>
-НИЯУ МИФИ
+    <title>"НИЯУ" МИФИ</title>
+    <faculties>
+        <faculty>K</faculty>
+		<departments>
+			<department>36</department>
+            			<group name="k6-361">
+                			<student>Казымова Юля</student>
+            			</group>
+		</departments>
+    </faculties>
 </mephi>
+
