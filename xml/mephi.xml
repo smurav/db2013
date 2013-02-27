@@ -1,4 +1,10 @@
 <?xml version="1.1" encoding='UTF-8' ?>
 <mephi>
 НИЯУ МИФИ
+  <faculty name="Кибернетика">
+                <group name="K6-361">
+                        <student>Ухоботова Ольга<student>
+                </group>
+  </faculty>
+
 </mephi>
