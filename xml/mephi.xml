@@ -1,4 +1,16 @@
 <?xml version="1.1" encoding='UTF-8' ?>
 <mephi>
-НИЯУ МИФИ
+ НИЯУ МИФИ
+<faculty>
+K
+<kafedra>
+36
+<group>
+K6-361
+<student>
+Мельник Леонид Андреевич 
+</student>
+</group>
+</kafedra>
+</faculty>
 </mephi>
