@@ -2,6 +2,9 @@
 <mephi>
 <title>НИЯУ МИФИ</title>
   <faculty> 
-  <title>Факультет K</title> 
+  <title>Факультет K</title>
+  <kafedra>
+  <title>K-36</title>
+  </kafedra> 
   </faculty>
 </mephi>
