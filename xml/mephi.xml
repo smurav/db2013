@@ -4,6 +4,7 @@
 		<department group_prefix="К" number="36" name="Информационные системы и технологии">
 			<group number="1" entering="2010">
 				<student name="Толстов Дмитрий"/>
+				<student name="Овчинников Игорь"/>
 			</group>	
 		</department>
 	</faculty>
