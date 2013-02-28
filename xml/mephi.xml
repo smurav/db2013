@@ -1,4 +1,19 @@
 <?xml version="1.1" encoding='UTF-8' ?>
-<mephi>
-НИЯУ МИФИ
-</mephi>
+<university name="НИЯУ МИФИ">
+	<faculty name="KиБ">
+		<department group_prefix="К" number="36" name="Информационные системы и технологии">
+			<group number="1" entering="2010">
+				<student name="Толстов Дмитрий"/>
+			</group>	
+		</department>
+	</faculty>
+
+	<faculty name="Ф">
+	</faculty>
+
+	<faculty name="Т">
+	</faculty>
+
+	<faculty name="А">
+	</faculty>
+</university>
