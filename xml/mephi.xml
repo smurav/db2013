@@ -8,6 +8,7 @@
 				<student name="Толстов Дмитрий"/>
 				<student name="Бузанова Виктория"/>
 				<student name="Овчинников Игорь"/>
+				<student name="Казымова Юля"/>
 			</group>	
 		</department>
 	</faculty>
@@ -21,3 +22,4 @@
 	<faculty name="А">
 	</faculty>
 </university>
+
