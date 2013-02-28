@@ -2,9 +2,11 @@
 <mephi>
 НИЯУ МИФИ
   <faculty name="Кибернетика">
+  	<department name= "36">
                 <group name="K6-361">
                         <student>Ухоботова Ольга<student>
                 </group>
+        </department>
   </faculty>
 
 </mephi>
