@@ -1,10 +1,12 @@
 <?xml version="1.1" encoding='UTF-8' ?>
+HEAD
 <university name="НИЯУ МИФИ">
 	<faculty name="KиБ">
 		<department group_prefix="К" number="36" name="Информационные системы и технологии">
 			<group number="1" entering="2010">
 				<student name="Рыбников Виталий"/>
 				<student name="Толстов Дмитрий"/>
+				<student name="Ухоботова Ольга"/>
 			</group>	
 		</department>
 	</faculty>
@@ -18,4 +20,5 @@
 	<faculty name="А">
 	</faculty>
 </university>
+
 
