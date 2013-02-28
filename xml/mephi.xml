@@ -1,24 +1,20 @@
 <?xml version="1.1" encoding='UTF-8' ?>
-<mephi>
-	<title>НИЯУ МИФИ</title>
-	<faculties>
-		<faculty>
-			<f_name>K</f_name>
-			<departments>
-				<department>
-					<d_name>36</d_name>
-					<groups>
-						<group>
-							<g_name>К6-361</g_name>
-							<students>
-								<student>
-									<s_name>Бузанова Виктория</s_name>
-								</student>
-							</students>
-						</group>
-					</groups>
-				</department>
-			</departments>	
-		</faculty>
-	</faculties>
-</mephi>
+<university name="НИЯУ МИФИ">
+	<faculty name="KиБ">
+		<department group_prefix="К" number="36" name="Информационные системы и технологии">
+			<group number="1" entering="2010">
+				<student name="Толстов Дмитрий"/>
+				<student name="Бузанова Виктория"/>
+			</group>	
+		</department>
+	</faculty>
+
+	<faculty name="Ф">
+	</faculty>
+
+	<faculty name="Т">
+	</faculty>
+
+	<faculty name="А">
+	</faculty>
+</university>
