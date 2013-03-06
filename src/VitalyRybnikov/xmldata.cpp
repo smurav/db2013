@@ -19,14 +19,17 @@
 #include "xmldata.h"
 
 
+    #include <iostream>
+    using namespace std;
+
 XMLData::XMLData()
 {
-
+    cout << "Create xmldata obj" << endl;
 }
 
 
 XMLData::~XMLData()
 {
-
+    cout << "Remove xmldata obj" << endl;
 }
 

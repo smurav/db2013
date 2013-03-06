@@ -19,15 +19,20 @@
 
 #include "xmlparser.h"
 
+    #include <iostream>
+    using namespace std;
 
-XMLParser::XMLParser()
+
+XMLParser::XMLParser(XMLHandler *handler)
 {
-
+    _handler = handler;
+    cout << "Create xml-parser obj" << endl;
 }
 
 
 XMLParser::~XMLParser()
 {
-
+    _handler = 0;
+    cout << "Remove xml-parser obj" << endl;
 }
 

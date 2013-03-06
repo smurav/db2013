@@ -17,15 +17,21 @@
 
 #include "xmlhandler.h"
 
+    #include <iostream>
+    using namespace std;
 
-XMLHandler::XMLHandler()
+XMLHandler::XMLHandler(XMLData *data)
 {
+    _data = data;
+        cout << "Create xml-handler obj" << endl;
 
 }
 
 
 XMLHandler::~XMLHandler()
 {
+    _data = 0;
+            cout << "Remove xml-handler obj" << endl;
 
 }
 

@@ -21,22 +21,38 @@
  */
 
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <string>
+//------------------------------------------------------------------------------
+#include "xmldata.h"
+#include "xmlhandler.h"
+#include "xmlparser.h"
 
 using namespace std;
 
 void help(char *programName);
+//------------------------------------------------------------------------------
+
+
 
 int main(int argc, char **argv)
 {
-
     if (argc < 2)       // start without any args
         help(argv[0]);
 
 
+    // Initialize main objects
+    XMLData     *xmlData    = new XMLData();
+    XMLHandler  *xmlHandler = new XMLHandler(xmlData);
+    XMLParser   xmlParser(xmlHandler);
 
 
+
+
+
+    cout << endl;
+    delete xmlHandler;
+    delete xmlData;
     return 0;
 }
 

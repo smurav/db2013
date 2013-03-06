@@ -15,18 +15,30 @@
  *
  */
 
+/* This class store some Data from XML file,
+ * like map <int, DataNode>
+ */
 
 #ifndef XMLDATA_H
 #define XMLDATA_H
+
+#include <map>
+
+/* Struct contain all nessesary info about one xml-tag
+ */
+struct DataNode
+{
+    int id;
+};
 
 class XMLData
 {
     public:
         XMLData();
-        virtual ~XMLData();
+        ~XMLData();
 
     private:
-        /* add your private declarations */
+        std::map<unsigned int, DataNode> _data;
 };
 
 #endif /* XMLDATA_H */

@@ -15,18 +15,26 @@
  *
  */
 
+/* This class is a simple xml-parser(SAX-based).
+ * It read xml-file, scan it, and emits events to xml-handler
+ */
 
 #ifndef XMLPARSER_H
 #define XMLPARSER_H
 
+
+
+#include "xmlhandler.h"
+
+
 class XMLParser
 {
     public:
-        XMLParser();
+        XMLParser(XMLHandler *handler);
         ~XMLParser();
 
     private:
-        /* add your private declarations */
+        XMLHandler  *_handler;
 };
 
 #endif /* XMLPARSER_H */

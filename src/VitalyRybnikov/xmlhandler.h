@@ -15,6 +15,13 @@
  *
  */
 
+/* This class implements logic of
+ * event-based model of working woth xml-file.
+ * It catch all events from parser and decide what to do
+ */
+
+#include "xmldata.h"
+
 
 #ifndef XMLHANDLER_H
 #define XMLHANDLER_H
@@ -22,10 +29,11 @@
 class XMLHandler
 {
     public:
-        XMLHandler();
+        XMLHandler(XMLData *data);
         virtual ~XMLHandler();
 
     private:
+        XMLData *_data;
         /* add your private declarations */
 };
 
