@@ -19,20 +19,51 @@
 
 #include "xmlparser.h"
 
-    #include <iostream>
-    using namespace std;
+#include <iostream>
+#include <fstream>
+using namespace std;
 
 
-XMLParser::XMLParser(XMLHandler *handler)
+XMLParser::XMLParser()
 {
-    _handler = handler;
-    cout << "Create xml-parser obj" << endl;
+        cout << "Create xml-parser obj" << endl << endl;
 }
-
 
 XMLParser::~XMLParser()
 {
-    _handler = 0;
-    cout << "Remove xml-parser obj" << endl;
+        cout << "Remove xml-parser obj" << endl << endl;
 }
+
+//------------------------------------------------------------------------------
+bool XMLParser::parse(XMLHandler *handler, char *filename)
+{
+    bool result = false;
+
+    if (!handler)       // we have bad pointer
+        return false;
+
+
+
+    ofstream xmlfile;
+    xmlfile.open(filename, ios::in);
+    if (!xmlfile.is_open())
+    {
+        cerr << "Error occurs while try to Open " << filename << endl;
+        return false;
+    }
+    cout << "Begin to parse " << filename << endl;
+    result = true;
+
+
+
+
+    xmlfile.close();
+    return result;
+}
+
+
+
+
+
+
 

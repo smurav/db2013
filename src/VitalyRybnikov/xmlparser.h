@@ -30,11 +30,13 @@
 class XMLParser
 {
     public:
-        XMLParser(XMLHandler *handler);
+        XMLParser();
         ~XMLParser();
 
+        bool parse(XMLHandler *handler, char *filename);
+
     private:
-        XMLHandler  *_handler;
+        //XMLHandler  *_handler;
 };
 
 #endif /* XMLPARSER_H */

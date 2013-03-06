@@ -37,19 +37,26 @@ void help(char *programName);
 
 int main(int argc, char **argv)
 {
-    if (argc < 2)       // start without any args
+    if (argc < 2)       // program started without any args
         help(argv[0]);
 
 
     // Initialize main objects
     XMLData     *xmlData    = new XMLData();
     XMLHandler  *xmlHandler = new XMLHandler(xmlData);
-    XMLParser   xmlParser(xmlHandler);
+    XMLParser   xmlParser;
+
+    if (xmlParser.parse(xmlHandler, argv[1]))
+    {
+        // data.print();
+    } else {
+        // some error occurs...
+        cout << "Some errors occur" << endl;
+    }
 
 
 
-
-
+    // Clear memory
     cout << endl;
     delete xmlHandler;
     delete xmlData;
