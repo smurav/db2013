@@ -1,5 +1,5 @@
 /*
- * main.cpp
+ * xmlparser.cpp
  *
  * Copyright 2013 Vitaly Rybnikov <Vitaly.Rybnikov@gmail.com>
  *
@@ -16,33 +16,18 @@
  *
  */
 
-/* This is Simple XML Parser
- *
- */
 
-#include <iostream>
-#include <stdlib.h>
-#include <string>
+#include "xmlparser.h"
 
-using namespace std;
 
-void help(char *programName);
-
-int main(int argc, char **argv)
+XMLParser::XMLParser()
 {
 
-    if (argc < 2)       // start without any args
-        help(argv[0]);
-
-
-
-
-    return 0;
 }
 
 
-void help(char *programName)
+XMLParser::~XMLParser()
 {
-    cout << "Using: " << programName << " <path_to_XML_file.xml>" << endl;
-    exit(-1);
+
 }
+

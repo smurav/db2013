@@ -1,5 +1,5 @@
 /*
- * main.cpp
+ * xmlhandler.cpp
  *
  * Copyright 2013 Vitaly Rybnikov <Vitaly.Rybnikov@gmail.com>
  *
@@ -12,37 +12,20 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- *
- *
  */
 
-/* This is Simple XML Parser
- *
- */
 
-#include <iostream>
-#include <stdlib.h>
-#include <string>
+#include "xmlhandler.h"
 
-using namespace std;
 
-void help(char *programName);
-
-int main(int argc, char **argv)
+XMLHandler::XMLHandler()
 {
 
-    if (argc < 2)       // start without any args
-        help(argv[0]);
-
-
-
-
-    return 0;
 }
 
 
-void help(char *programName)
+XMLHandler::~XMLHandler()
 {
-    cout << "Using: " << programName << " <path_to_XML_file.xml>" << endl;
-    exit(-1);
+
 }
+
