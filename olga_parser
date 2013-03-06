@@ -1,3 +1,22 @@
 #include <iostream>
 #include <fstream>
 using namespase std;
+
+int main ()
+{
+  chat str[100];
+  int i;  
+  setlocale(LC_ALL, "rus");
+  ifstream in ("mephi.xml");
+  if (!in) {
+              cout << "Can't open file\n";
+              return 1;
+            }
+ for (i=0; i<=40; i++)
+    {
+      in >> str;
+      cout << str << "\n";
+    }
+system("pause");
+return 0;
+}
