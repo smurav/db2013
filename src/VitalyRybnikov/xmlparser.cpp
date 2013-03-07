@@ -21,6 +21,9 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>   // c++  strings
+#include <cstring>  // c    strings
+
 using namespace std;
 
 
@@ -44,20 +47,88 @@ bool XMLParser::parse(XMLHandler *handler, char *filename)
 
 
 
-    ofstream xmlfile;
-    xmlfile.open(filename, ios::in);
-    if (!xmlfile.is_open())
+    FILE    *pFile;
+    char    buffer  [1000];
+    char    name    [100];
+
+    pFile = fopen ("mephi.xml" , "r");
+    if (pFile == NULL) perror("Error opening file");
+    else
     {
-        cerr << "Error occurs while try to Open " << filename << endl;
-        return false;
+        while ( !feof(pFile) )
+        {
+            if ( fgets (buffer , 1000 , pFile) == NULL ) break;
+
+            size_t len = strlen(buffer);
+            printf("The len: %d", len);
+
+            for (int i=0; i<len; ++i)
+            {
+                if (buffer[i] == '"')
+                {
+                    char *start = &buffer[++i];
+                    while (buffer[i] != '"')
+                    {
+                        ++i;
+                    }
+                    char *end = &buffer[i];
+
+                    int size = end - start;
+                    memcpy(name, start, size);
+                    name[size] = '\0';
+                    printf(" Bingo!!!!%d: %s\n", strlen(name), name);
+                }
+
+            }
+
+            fputs (buffer , stdout);
+            //if ( fgetws (wbuffer , 1000 , pFile) == NULL ) break;
+            //fputs (buffer , stdout);
+
+        }
+    fclose (pFile);
     }
-    cout << "Begin to parse " << filename << endl;
-    result = true;
+
+    //wifstream xmlfile(filename);     // read-only by default
+    //if ( !xmlfile.is_open() )
+    //{
+        //cerr << "Unable to open " << filename << endl;
+        //return false;
+    //}
+    //cout << "Begin to parse " << filename << endl;
+    //result = true;
+
+    //string line;
+    //wstring wc;
+
+    //while (xmlfile.good())
+    //{
+        ////getline (xmlfile,line);
+        ////getline (xmlfile, wc);
+
+        //// parse 'line'
+
+        ////wcout << wc << endl;
+        ////unsigned int lineSize = line.size();
+        ////for (unsigned int i=0; i < lineSize; ++i)
+        //{
+            ////cout << line.at(i);
+
+            ////char ch[] = "<";
+            ////int cmp = strcmp(&line.at(i), ch);
+            ////cout << cmp << "_";
+
+
+            ////if ( !strcmp(&line.at(i), ch) )        // 0 - strings're equal
+            ////{
+                ////cout << endl << "< found-----:" << i << endl;
+            ////}
+        //}
+    //}
 
 
 
-
-    xmlfile.close();
+    //xmlfile.close();
     return result;
 }
 
