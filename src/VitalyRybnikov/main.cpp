@@ -51,7 +51,7 @@ int main(int argc, char **argv)
         // data.print();
     } else {
         // some error occurs...
-        cout << "Some errors occur" << endl;
+        //cout << "Some errors occured" << endl;
     }
 
 
