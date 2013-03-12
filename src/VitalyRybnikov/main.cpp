@@ -7,7 +7,7 @@
 #include <libxml/parser.h>
 
 void help(char *programName);
-void printXMLThreeConsole(char *fileName);
+void printXMLThreeInConsole_university(char *fileName);
 void printSpaces(int count);
 void printElementNames(xmlNode * a_node);
 
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
         if (strcmp(argv[1], consoleModeParam) == 0)
         {
             // console mode, hope with correct filename
-            printXMLThreeConsole(argv[2]);
+            printXMLThreeInConsole_university(argv[2]);
             exit(0);
         }
     }
@@ -83,7 +83,7 @@ void help(char *programName)
 //-------------------------------
 
 // Print XML structure as Three in console
-void printXMLThreeConsole(char *fileName)
+void printXMLThreeInConsole_university(char *fileName)
 {
     xmlDoc *doc = NULL;
     xmlNode *root_element = NULL;
@@ -99,12 +99,28 @@ void printXMLThreeConsole(char *fileName)
     doc = xmlReadFile(fileName, NULL, 0);
 
     if (doc == NULL) {
-        printf("error: could not parse file %s\n", fileName);
+        fprintf(stderr, "error: could not parse file %s\n", fileName);
+        return;
     }
 
     /*Get the root element node */
     root_element = xmlDocGetRootElement(doc);
 
+    if (root_element == NULL) {
+        fprintf(stderr, "empty document\n");
+        xmlFreeDoc(doc);
+        return;
+    }
+
+    // good to use DTD for that, or smth else
+    if (xmlStrcmp(root_element->name, (const xmlChar *) "university"))
+    {
+            fprintf(stderr,"document of the wrong type, root node != university\n");
+            xmlFreeDoc(doc);
+            return;
+    }
+
+    // ok, let's lastly print three)))
     printElementNames(root_element);
 
     /*free the document */
@@ -116,6 +132,7 @@ void printXMLThreeConsole(char *fileName)
      */
     xmlCleanupParser();
 }
+
 //-------------------------------
 // Print 'count' spaces (need to draw 'fake three' in console)
 void printSpaces(int count)
@@ -128,6 +145,7 @@ void printSpaces(int count)
             printf("|");
     }
 }
+
 //-------------------------------
 // Print Names for given node 'a_node'
 // for this node, sibling, and their childs (recursivle)
@@ -149,12 +167,16 @@ void printElementNames(xmlNode * a_node)
 //            printf("%d _ %s = %s\n", k, cur_node->properties->name,
 //                                      cur_node->properties->children->content
 //                                        );
-
-            char *attrname = (char *) cur_node->properties->name;
-
-            printf("%s = %s\n", cur_node->properties->name,
-                                      cur_node->properties->children->content
-                                        );
+            xmlChar *uri;
+            // We interested only in attrs 'name'
+            uri = xmlGetProp(cur_node, (xmlChar *)"name");
+            if (uri)
+                printf("%s\n", uri);
+            else                    // perhaps, it's 'group' tag
+                printf("%s %s, %s\n", cur_node->name,
+                       xmlGetProp(cur_node, (xmlChar *)"number"),
+                       xmlGetProp(cur_node, (xmlChar *)"entering")
+                       );
         }
         // print information about children
         deep++;
