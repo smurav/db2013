@@ -10,11 +10,11 @@ class XMLStructureThreeView;
 class XMLStructureThreeView : public QMainWindow
 {
     Q_OBJECT
-    
+
 public:
-    explicit XMLStructureThreeView(QWidget *parent = 0);
+    explicit XMLStructureThreeView(QWidget *parent = 0, char *fileName = NULL);
     ~XMLStructureThreeView();
-    
+
 private:
     Ui::XMLStructureThreeView *ui;
 };
