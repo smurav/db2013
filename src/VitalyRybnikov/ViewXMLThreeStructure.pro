@@ -37,9 +37,11 @@ LIBS += -lxml2
 # Путь для сохранения временных файлов Qt
 MOC_DIR = $${OBJECTS_DIR}
 
-SOURCES += main.cpp\
-        xmlstructurethreeview.cpp
+SOURCES += main.cpp \
+    xmlstructuretreeview.cpp
 
-HEADERS  += xmlstructurethreeview.h
+HEADERS  += \
+    xmlstructuretreeview.h
 
-FORMS    += xmlstructurethreeview.ui
+FORMS    += \
+    xmlstructuretreeview.ui

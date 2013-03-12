@@ -1,4 +1,4 @@
-#include "xmlstructurethreeview.h"
+#include "xmlstructuretreeview.h"
 #include <QApplication>
 
 #include <cstdio>
@@ -11,18 +11,18 @@ void printXMLThreeInConsole_university(char *fileName);
 void printSpaces(int count);
 void printElementNames(xmlNode * a_node);
 
+
 int main(int argc, char *argv[])
 {
     char helpParam[] = "-h";
     char consoleModeParam[] = "-c";
     char versionParam[] = "-v";
 
-
     if (argc == 1)
     {
         // just start graphic
         QApplication a(argc, argv);
-        XMLStructureThreeView w;
+        XMLStructureTreeView w;
         w.show();
         return a.exec();
     }
@@ -46,14 +46,14 @@ int main(int argc, char *argv[])
     {
         if (strcmp(argv[1], consoleModeParam) == 0)
         {
-            // user not specified filename for console mode
+            // user didn't specified filename for console mode
             help(argv[0]);
             exit(0);
         }
 
         // graphic mode, fileName specified
         QApplication a(argc, argv);
-        XMLStructureThreeView w(0, argv[1]);    // ( *parent, *fileName)
+        XMLStructureTreeView w(0, argv[1]);    // ( *parent, *fileName)
         w.show();
         return a.exec();
     }
