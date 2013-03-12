@@ -9,7 +9,7 @@
 void help(char *programName);
 void printXMLThreeConsole(char *fileName);
 void printSpaces(int count);
-static void printElementNames(xmlNode * a_node);
+void printElementNames(xmlNode * a_node);
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +17,15 @@ int main(int argc, char *argv[])
     char consoleModeParam[] = "-c";
     char versionParam[] = "-v";
 
+
+    if (argc == 1)
+    {
+        // just start graphic
+        QApplication a(argc, argv);
+        XMLStructureThreeView w;
+        w.show();
+        return a.exec();
+    }
 
     if (argc > 1)   // at least we have 1 arg: argv[0] - program name
     {
@@ -44,7 +53,7 @@ int main(int argc, char *argv[])
 
         // graphic mode, fileName specified
         QApplication a(argc, argv);
-        XMLStructureThreeView w;
+        XMLStructureThreeView w(0, argv[1]);    // ( *parent, *fileName)
         w.show();
         return a.exec();
     }
@@ -122,20 +131,28 @@ void printSpaces(int count)
 //-------------------------------
 // Print Names for given node 'a_node'
 // for this node, sibling, and their childs (recursivle)
-static void printElementNames(xmlNode * a_node)
+void printElementNames(xmlNode * a_node)
 {
     xmlNode *cur_node = NULL;
-    int k = 0;
-    static int deep = 0;
+//    int k = 0;
+    static int deep = 0;    // current deep-level in three-hierarchy
 
     // go along one deep-level (this->brother1->broter2->...)
     for (cur_node = a_node; cur_node; cur_node = cur_node->next)
     {
         if (cur_node->type == XML_ELEMENT_NODE)
         {
-                ++k;
+//                ++k;
             printSpaces(deep);
-            printf("%d _ %s = %s\n", k, cur_node->properties->name,
+            // print:  'helpful integer _ attribute name = attribute value'
+            //          for firsts attrbs
+//            printf("%d _ %s = %s\n", k, cur_node->properties->name,
+//                                      cur_node->properties->children->content
+//                                        );
+
+            char *attrname = (char *) cur_node->properties->name;
+
+            printf("%s = %s\n", cur_node->properties->name,
                                       cur_node->properties->children->content
                                         );
         }
