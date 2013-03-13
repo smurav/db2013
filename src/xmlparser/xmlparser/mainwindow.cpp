@@ -21,26 +21,33 @@ MainWindow::~MainWindow()
 }
 
 
-static void print_element_names(xmlNode * a_node){
+static QString print_element_names(xmlNode * a_node){
 
     xmlNode *cur_node = NULL;
     int k = 0;
     static int deep = 0;
+    static QString list;
+
 
     // ходим по одному уровню (по сёстрам и братьям)
     for (cur_node = a_node; cur_node; cur_node = cur_node->next) {
 
         if (cur_node->type == XML_ELEMENT_NODE) {
             ++k;
-            printf("name:%d __ %s = %s\n", k, cur_node->properties->name,
-                                      cur_node->properties->children->content
+            printf("name:%d __ %s = %s\n", k, (char*)cur_node->properties->name,
+                                      (char*)cur_node->properties->children->content
                                         );
+            list.append(QString((char*)cur_node->properties->children->content));
+            list.append('\n');
+
+
         }
         //  переходим к детям, вглубь на 1 уровень
         deep++;
         print_element_names(cur_node->children);
         deep--;
     }
+   return list;
 }
 
 
@@ -74,7 +81,8 @@ void MainWindow::chooseButtonClicked(){
     /*Get the root element node */
     root_element = xmlDocGetRootElement(doc);
 
-    print_element_names(root_element);
+
+    ui->textEdit->setText(print_element_names(root_element));
 
     /*free the document */
     xmlFreeDoc(doc);
@@ -84,6 +92,8 @@ void MainWindow::chooseButtonClicked(){
      *have been allocated by the parser.
      */
     xmlCleanupParser();
+
+
 
 
 

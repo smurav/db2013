@@ -14,32 +14,27 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTreeWidget" name="treeWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>331</width>
-      <height>441</height>
-     </rect>
-    </property>
-    <column>
-     <property name="text">
-      <string notr="true">1</string>
-     </property>
-    </column>
-   </widget>
    <widget class="QPushButton" name="chooseButton">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>0</y>
+      <x>400</x>
+      <y>30</y>
       <width>141</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>Выбрать файл</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>381</width>
+      <height>451</height>
+     </rect>
     </property>
    </widget>
   </widget>
