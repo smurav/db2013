@@ -19,7 +19,11 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTreeView" name="treeView"/>
+     <widget class="QTreeView" name="treeView">
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -29,7 +33,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>32</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -55,7 +59,9 @@
   </widget>
   <action name="actionOpen_file">
    <property name="icon">
-    <iconset theme="open-file"/>
+    <iconset>
+     <normaloff/>
+    </iconset>
    </property>
    <property name="text">
     <string>Open file...</string>

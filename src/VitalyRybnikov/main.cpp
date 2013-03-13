@@ -19,7 +19,8 @@ int main(int argc, char *argv[])
     char versionParam[] = "-v";
 
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
-
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
     if (argc == 1)
     {

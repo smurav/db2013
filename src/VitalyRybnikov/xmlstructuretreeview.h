@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+struct _xmlNode;
+class QStandardItem;
 class QStandardItemModel;
 
 namespace Ui {
@@ -25,6 +27,7 @@ private:
 
 
     bool fillTreeModelWithData();
+    void fillModelRootItem(_xmlNode *a_node, QStandardItem *root_model_item);
 
 private slots:
     void actionOpen_fileTriggered();
