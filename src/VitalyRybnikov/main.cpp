@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 
         if (strcmp(argv[1], versionParam) == 0)
         {
-            printf("Version: 0.0.1\n");
+            printf("Version: 0.0.2\n");
             exit(0);
         }
     }

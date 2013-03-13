@@ -1,6 +1,4 @@
 #include "xmlstructuretreeview.h"
-//#include "ui_xmlstructuretreeview.h"
-
 #include "ui_xmlstructuretreeview.h"
 
 #include <libxml/parser.h>
@@ -15,18 +13,17 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
     ui(new Ui::XMLStructureTreeView)
 {
     ui->setupUi(this);
-    _model      = NULL;
-
+//    _model      = NULL;
     _model = new QStandardItemModel;
 
 
     if (fileName)
     {
-        qDebug() << "We have filename as argv[1]:" << fileName;
+            qDebug() << "We have filename as argv[1]:" << fileName;
         _fileName = QString(fileName);
-        _model = new QStandardItemModel;
         if (fillTreeModelWithData())
         {
+            ui->treeView->expandAll();
             qDebug() << "Parsed success";
         } else {
             qDebug() << "Parse ERROR!";
@@ -37,8 +34,13 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
             this, SLOT(actionOpen_fileTriggered())
             );
 
-
-
+    /* Icon Naming Specification for 'themes'
+     * http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html
+     **/
+    ui->actionOpen_file->setIcon(QIcon::fromTheme("document-open",
+                                                  QIcon(":/openFile")));
+    ui->actionExit->setIcon(QIcon::fromTheme("application-exit",
+                                             QIcon(":/quit")));
 
 return;
 
@@ -65,9 +67,6 @@ return;
 
 
     _model->setItem(0, item1);
-
-
-
     ui->treeView->setModel(_model);
 }
 
@@ -89,23 +88,21 @@ bool XMLStructureTreeView::fillTreeModelWithData()
     QStandardItem *root_model_item = new QStandardItem(0, 0);
 
     // construct tree
-//    root_item->setData(tr("Wow"), Qt::DisplayRole);
-
     xmlDoc *doc = NULL;
     xmlNode *root_element = NULL;
 
     LIBXML_TEST_VERSION
 
-    /*parse the file and get the DOM */
+
     /* how to convert Qstring <-> char
        http://qt-project.org/faq/answer/how_can_i_convert_a_qstring_to_char_and_vice_versa
     */
-
     QByteArray buffBA = _fileName.toUtf8();
     const char* fileName_c = buffBA.constData();
 
-        qDebug() << "Try to Open file:" << fileName_c;
-    doc = xmlReadFile(fileName_c, NULL, 0);
+        qDebug() << "Try to Open file:" << fileName_c << endl;
+    /*parse the file and get the DOM */
+    doc = xmlReadFile(fileName_c, NULL, XML_PARSE_NOBLANKS);
 
     if (doc == NULL) {
         fprintf(stderr, "error: could not parse file %s\n", fileName_c);
@@ -132,9 +129,32 @@ bool XMLStructureTreeView::fillTreeModelWithData()
             return false;
     }
 
-    // ok, let's lastly print three)))
-    //    printElementNames(root_element);
-    fillModelRootItem(root_element, root_model_item);
+    // fill root_model_item with Data
+    xmlNode *cur_node = NULL;
+    for (cur_node = root_element; cur_node; cur_node = cur_node->next)
+    {
+//        qDebug() << "->NEXT; Node type:" << cur_node->type;
+        if (cur_node->type == XML_ELEMENT_NODE)
+        {
+            xmlChar *uri;
+            uri = xmlGetProp(cur_node, (xmlChar *) "name");
+            if (uri)
+            {
+                root_model_item->setData((char *)uri, Qt::DisplayRole);
+                qDebug() << "Set uri for root element: " << (char *)uri
+                         << endl << "-------------------------------------";
+            } else {
+                root_model_item->setData(tr("NoName University :)"), Qt::DisplayRole);
+            }
+            break;
+        }
+    }
+
+    // ok, let's lastly print this tree)))
+    QStandardItem *childs = NULL;
+    // root element must be only one in XML-file
+    fillModelRootItem(root_element->children, root_model_item, childs);
+    // childs will one after one be appended to 'root_model_item' if exist any
 
     /*free the document */
     xmlFreeDoc(doc);
@@ -145,67 +165,60 @@ bool XMLStructureTreeView::fillTreeModelWithData()
     return true;
 }
 
-void XMLStructureTreeView::fillModelRootItem(_xmlNode       *a_node,
-                                             QStandardItem  *root_model_item
+void XMLStructureTreeView::fillModelRootItem( _xmlNode          *a_node
+                                             , QStandardItem    *parent
+                                             , QStandardItem    *new_child_item
                                              )
 {
     xmlNode *cur_node = NULL;
-    QStandardItem *cur_model_node = NULL;
+    static int deep = 0;                        // current deep-level in tree-hierarchy
+        qDebug() << "Enter func, deep: " << deep;
 
-    cur_model_node = root_model_item;
-    static int deep = 0;                        // current deep-level in three-hierarchy
 
     // go along one deep-level (this->brother1->broter2->...)
     for (cur_node = a_node; cur_node; cur_node = cur_node->next)
     {
+        qDebug() << "->NEXT; Node type:" << cur_node->type;
         if (cur_node->type == XML_ELEMENT_NODE)
         {
             xmlChar *uri;
-                    qDebug() << "Current node: " << (char *)cur_node->properties->name;
-
-            // We interested only in attrs 'name'
             uri = xmlGetProp(cur_node, (xmlChar *) "name");
             if (uri)
             {
-
-                cur_model_node->setData((char *)uri, Qt::DisplayRole);
-//                root_model_item->setData ((char *) uri, Qt::DisplayRole);
+                new_child_item = new QStandardItem(0, 0);
+                new_child_item->setData((char *)uri, Qt::DisplayRole);
                 qDebug() << "Set uri: " << (char *)uri;
-                //                printf("set uri: %s\n", uri);
-            } else
+            }
+            else
             {
-                qDebug() << "No uri";
-                // perhaps, it's 'group' tag
-//                printf("%s %s, %s\n", cur_node->name,
+                qDebug() << "No name field / no uri";
+                // do nothing with this Node
+                // perhaps, it's `group` tag
 //                       xmlGetProp(cur_node, (xmlChar *)"number"),
 //                       xmlGetProp(cur_node, (xmlChar *)"entering")
 //                       );
             }
-
-//        return; // TEST
         } else {
-            qDebug() << "cur_node_type != xml+element_node";
+            qDebug() << "cur_node_type != xml+element_node (text between tags)"
+                     << endl << "Content:" << (char *)cur_node->content;
         }
 
+            deep++;
+//        qDebug()<< endl;
 
-        // print information about childrens
-        deep++;
+            qDebug() << "Go deeper, deep: " << deep;
+        fillModelRootItem(cur_node->children, new_child_item, NULL);
 
-        QStandardItem *childs = new QStandardItem(0, 0);
-        qDebug()<< endl;
-
-        fillModelRootItem(cur_node->children, childs);
-
-        if (childs->data(Qt::DisplayRole).isNull())
+        // save information about childrens
+        if (new_child_item != NULL && parent != NULL)
         {
-            qDebug() << "Need not append this:";
-            qDebug() << "Append child:" << childs->data(Qt::DisplayRole) <<  "with row count: " << childs->rowCount();
-        } else {
-            cur_model_node->appendRow(childs);
+            parent->appendRow(new_child_item);
+            qDebug() << "Add children:"
+                     << new_child_item->data(Qt::DisplayRole).toString();
+            new_child_item = NULL;
         }
-
-
-        deep--; // all done, go to the next brother
+            deep--; // all done, go to the next brother
+            qDebug() << "Go back, deep: " << deep;
     }
 }
 
@@ -214,9 +227,6 @@ void XMLStructureTreeView::fillModelRootItem(_xmlNode       *a_node,
 // Show fileDialog to select xml-file
 void XMLStructureTreeView::actionOpen_fileTriggered()
 {
-    qDebug() << "Open file triggered";
-
-//    QFileDialog filedialog;
     QString fileName = QFileDialog::getOpenFileName(this,
                                                     tr("Выберите XML файл"),
                                                     ".",
@@ -225,7 +235,13 @@ void XMLStructureTreeView::actionOpen_fileTriggered()
     {
         qDebug() << "Select file: " << fileName;
         _fileName = fileName;
-        fillTreeModelWithData();
+        if (fillTreeModelWithData())
+        {
+            ui->treeView->expandAll();
+            qDebug() << "Parsed success";
+        } else {
+            qDebug() << "Parse ERROR!";
+        }
     }
 }
 

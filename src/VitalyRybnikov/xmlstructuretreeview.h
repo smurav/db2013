@@ -20,14 +20,15 @@ public:
     ~XMLStructureTreeView();
 
 private:
+    Ui::XMLStructureTreeView *ui;
+
     QStandardItemModel *_model;
     QString _fileName;
 
-    Ui::XMLStructureTreeView *ui;
-
-
     bool fillTreeModelWithData();
-    void fillModelRootItem(_xmlNode *a_node, QStandardItem *root_model_item);
+    void fillModelRootItem(_xmlNode *a_node,
+                           QStandardItem *parent,
+                           QStandardItem *current_item);
 
 private slots:
     void actionOpen_fileTriggered();

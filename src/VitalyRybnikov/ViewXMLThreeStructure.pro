@@ -45,3 +45,6 @@ HEADERS  += \
 
 FORMS    += \
     xmlstructuretreeview.ui
+
+RESOURCES += \
+    res/res.qrc
