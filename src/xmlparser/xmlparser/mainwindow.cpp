@@ -34,6 +34,10 @@ static QString print_element_names(xmlNode * a_node){
 
         if (cur_node->type == XML_ELEMENT_NODE) {
             ++k;
+            for (int k = 0; k<deep; ++k){
+                printf("\t");
+                list.append("    ");
+            }
             printf("name:%d __ %s = %s\n", k, (char*)cur_node->properties->name,
                                       (char*)cur_node->properties->children->content
                                         );
@@ -52,6 +56,8 @@ static QString print_element_names(xmlNode * a_node){
 
 
 void MainWindow::chooseButtonClicked(){
+
+    ui->textEdit->clear();
 
     QString fileName   =   QFileDialog::getOpenFileName(this, tr("Choose file"), "/home/vika/git/db2013/xml", tr("XML (*.xml)"));
 
@@ -76,6 +82,7 @@ void MainWindow::chooseButtonClicked(){
 
     if (doc == NULL) {
         qDebug() << "Warning~!!!!!!";
+        ui->textEdit->setText("Error!");
     }
 
     /*Get the root element node */
