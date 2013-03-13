@@ -4,6 +4,7 @@
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 #include <QDebug>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -34,7 +35,7 @@ static QString print_element_names(xmlNode * a_node){
 
         if (cur_node->type == XML_ELEMENT_NODE) {
             ++k;
-            for (int k = 0; k<deep; ++k){
+            for (int kol = 0; kol<deep; ++kol){
                 printf("\t");
                 list.append("    ");
             }
@@ -50,7 +51,7 @@ static QString print_element_names(xmlNode * a_node){
         deep++;
         print_element_names(cur_node->children);
         deep--;
-    }
+    } 
    return list;
 }
 
@@ -58,7 +59,6 @@ static QString print_element_names(xmlNode * a_node){
 void MainWindow::chooseButtonClicked(){
 
     ui->textEdit->clear();
-
     QString fileName   =   QFileDialog::getOpenFileName(this, tr("Choose file"), "/home/vika/git/db2013/xml", tr("XML (*.xml)"));
 
     if (fileName.isEmpty())
@@ -82,7 +82,10 @@ void MainWindow::chooseButtonClicked(){
 
     if (doc == NULL) {
         qDebug() << "Warning~!!!!!!";
-        ui->textEdit->setText("Error!");
+        QMessageBox msbox;
+        msbox.setWindowTitle("Error!!!!");
+        msbox.setText("File is not XML");
+        msbox.exec();
     }
 
     /*Get the root element node */
