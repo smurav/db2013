@@ -168,12 +168,18 @@ void XMLStructureTreeView::fillModelRootItem( _xmlNode          *a_node
             }
             else
             {
-                qDebug() << "No name field / no uri";
-                // do nothing with this Node
                 // perhaps, it's `group` tag
-//                       xmlGetProp(cur_node, (xmlChar *)"number"),
-//                       xmlGetProp(cur_node, (xmlChar *)"entering")
-//                       );
+                QString noNameAttr = "";
+                noNameAttr.append((char *)xmlGetProp(cur_node, (xmlChar *)"number"));
+                noNameAttr.append(tr(", "));
+                noNameAttr.append((char *)xmlGetProp(cur_node, (xmlChar *)"entering"));
+
+                if (noNameAttr.trimmed().length() < 2)   // tag hasn't any known attrs
+                    noNameAttr = ((char *)cur_node->name);
+
+                new_child_item = new QStandardItem(0, 0);
+                new_child_item->setData(noNameAttr, Qt::DisplayRole);
+                qDebug() << "Set noNameAttr: " << noNameAttr;
             }
         } else {
             qDebug() << "cur_node_type != xml+element_node (text between tags)"
