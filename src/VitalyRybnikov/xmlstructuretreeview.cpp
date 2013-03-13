@@ -5,6 +5,7 @@
 #include <libxml/tree.h>
 
 #include <QFileDialog>
+#include <QMessageBox>
 #include <QStandardItemModel>
     #include <QDebug>
 
@@ -14,6 +15,7 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
 {
     ui->setupUi(this);
     _model = new QStandardItemModel;
+    ui->statusbar->showMessage(tr("Ready!"));
 
     // maybe we have an arg from console..
     if (fileName)
@@ -25,6 +27,7 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
             ui->treeView->expandAll();
             qDebug() << "Parsed success";
         } else {
+            ui->statusbar->showMessage(tr("Ошибка парсинга XML файла."));
             qDebug() << "Parse ERROR!";
         }
     }
@@ -80,7 +83,14 @@ bool XMLStructureTreeView::fillTreeModelWithData()
 
     if (doc == NULL) {
         fprintf(stderr, "error: could not parse file %s\n", fileName_c);
-        // TODO: generate Pop-up error msg
+        QMessageBox::critical(this, tr("Ошибка парсинга файла"),
+                                tr("Не удалось распарсить файл.\n"
+                                   "Более подробную информацию об ошибке можно\n"
+                                   "узнать, вызвав программу из консоли с параметрами:\n"
+                                   "-c <путь к файлу>.\n"
+                                    "Пожалуйста, выберите другой файл."),
+                                    QMessageBox::Ok /*| QMessageBox::Open*/
+                                    );
         return false;
     }
 
@@ -90,7 +100,7 @@ bool XMLStructureTreeView::fillTreeModelWithData()
     if (root_element == NULL) {
         fprintf(stderr, "empty document\n");
         xmlFreeDoc(doc);
-        // TODO: generate error msg to user
+        ui->statusbar->showMessage(tr("Empty document!"));
         return false;
     }
 
@@ -99,7 +109,12 @@ bool XMLStructureTreeView::fillTreeModelWithData()
     {
             fprintf(stderr,"document of the wrong type, root node != university\n");
             xmlFreeDoc(doc);
-            // TODO: need pop-up error
+            QMessageBox::critical(this, tr("Ошибка формата файла"),
+                                            tr("Документ имеет неправильную структуру:\n"
+                                               "Корневой элемент не university.\n"
+                                               "Пожалуйста, выберите другой файл."),
+                                            QMessageBox::Ok /*| QMessageBox::Open*/
+                                            );
             return false;
     }
 
