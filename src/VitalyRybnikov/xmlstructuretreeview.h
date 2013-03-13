@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class QStandardItemModel;
+
 namespace Ui {
 class XMLStructureTreeView;
 }
@@ -16,7 +18,17 @@ public:
     ~XMLStructureTreeView();
 
 private:
+    QStandardItemModel *_model;
+    QString _fileName;
+
     Ui::XMLStructureTreeView *ui;
+
+
+    bool fillTreeModelWithData();
+
+private slots:
+    void actionOpen_fileTriggered();
+
 };
 
 #endif // XMLSTRUCTURETREEVIEW_H

@@ -1,5 +1,6 @@
 #include "xmlstructuretreeview.h"
 #include <QApplication>
+#include <QTextCodec>
 
 #include <cstdio>
 
@@ -11,12 +12,14 @@ void printXMLThreeInConsole_university(char *fileName);
 void printSpaces(int count);
 void printElementNames(xmlNode * a_node);
 
-
 int main(int argc, char *argv[])
 {
     char helpParam[] = "-h";
     char consoleModeParam[] = "-c";
     char versionParam[] = "-v";
+
+    QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
+
 
     if (argc == 1)
     {
