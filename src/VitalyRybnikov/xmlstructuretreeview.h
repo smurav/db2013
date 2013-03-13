@@ -26,13 +26,12 @@ private:
     QString _fileName;
 
     bool fillTreeModelWithData();
-    void fillModelRootItem(_xmlNode *a_node,
+    void fillModelRootItem(_xmlNode      *a_node,
                            QStandardItem *parent,
                            QStandardItem *current_item);
 
 private slots:
     void actionOpen_fileTriggered();
-
 };
 
 #endif // XMLSTRUCTURETREEVIEW_H

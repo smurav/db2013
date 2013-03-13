@@ -13,10 +13,9 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
     ui(new Ui::XMLStructureTreeView)
 {
     ui->setupUi(this);
-//    _model      = NULL;
     _model = new QStandardItemModel;
 
-
+    // maybe we have an arg from console..
     if (fileName)
     {
             qDebug() << "We have filename as argv[1]:" << fileName;
@@ -34,49 +33,26 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
             this, SLOT(actionOpen_fileTriggered())
             );
 
-    /* Icon Naming Specification for 'themes'
+    connect(ui->actionExit, SIGNAL(triggered()),
+            qApp, SLOT(quit())
+            );
+
+    /* Icon Naming Specification for `themes' icons`
      * http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html
      **/
     ui->actionOpen_file->setIcon(QIcon::fromTheme("document-open",
                                                   QIcon(":/openFile")));
     ui->actionExit->setIcon(QIcon::fromTheme("application-exit",
                                              QIcon(":/quit")));
-
-return;
-
-
-
-//    QStandardItem item1;
-//    QStandardItem item1("string_item");
-
-//    QStandardItem item2("string_item_2");
-
-//    item1.appendRow(&item2);
-
-    QStandardItem *item1 = new QStandardItem(0, 0);
-    item1->setData("text", Qt::DisplayRole);
-
-    QStandardItem *item2 = new QStandardItem(0, 0);
-    item2->setData("Hohoho", Qt::DisplayRole);
-
-    QStandardItem *item3 = new QStandardItem(0, 0);
-    item3->setData("Third", Qt::DisplayRole);
-
-    item2->appendRow(item3);
-    item1->appendRow(item2);
-
-
-    _model->setItem(0, item1);
-    ui->treeView->setModel(_model);
 }
-
+//-------------------
 XMLStructureTreeView::~XMLStructureTreeView()
 {
     delete ui;
     delete _model;
 }
 
-//----------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // Parse XML file '_fileName' and fill model '_model'
 // with data as tree
 bool XMLStructureTreeView::fillTreeModelWithData()
@@ -84,19 +60,17 @@ bool XMLStructureTreeView::fillTreeModelWithData()
     if (_fileName.isEmpty())
         return false;
 
+    // prepare
     _model->clear();
     QStandardItem *root_model_item = new QStandardItem(0, 0);
 
-    // construct tree
     xmlDoc *doc = NULL;
     xmlNode *root_element = NULL;
-
     LIBXML_TEST_VERSION
 
-
     /* how to convert Qstring <-> char
-       http://qt-project.org/faq/answer/how_can_i_convert_a_qstring_to_char_and_vice_versa
-    */
+     * http://qt-project.org/faq/answer/how_can_i_convert_a_qstring_to_char_and_vice_versa
+     **/
     QByteArray buffBA = _fileName.toUtf8();
     const char* fileName_c = buffBA.constData();
 
@@ -110,7 +84,7 @@ bool XMLStructureTreeView::fillTreeModelWithData()
         return false;
     }
 
-    /*Get the root element node */
+    /* Get the root element node */
     root_element = xmlDocGetRootElement(doc);
 
     if (root_element == NULL) {
@@ -150,11 +124,14 @@ bool XMLStructureTreeView::fillTreeModelWithData()
         }
     }
 
-    // ok, let's lastly print this tree)))
+
+    // ok, let's lastly print this tree to poor user)))
     QStandardItem *childs = NULL;
-    // root element must be only one in XML-file
-    fillModelRootItem(root_element->children, root_model_item, childs);
+    // construct tree
+    // root element must be only one in XML-file (due to standard)
     // childs will one after one be appended to 'root_model_item' if exist any
+    fillModelRootItem(root_element->children, root_model_item, childs);
+
 
     /*free the document */
     xmlFreeDoc(doc);
@@ -171,8 +148,8 @@ void XMLStructureTreeView::fillModelRootItem( _xmlNode          *a_node
                                              )
 {
     xmlNode *cur_node = NULL;
-    static int deep = 0;                        // current deep-level in tree-hierarchy
-        qDebug() << "Enter func, deep: " << deep;
+//    static int deep = 0;                 // current deep-level in tree-hierarchy
+//        qDebug() << "Enter func, deep: " << deep;
 
 
     // go along one deep-level (this->brother1->broter2->...)
@@ -203,10 +180,10 @@ void XMLStructureTreeView::fillModelRootItem( _xmlNode          *a_node
                      << endl << "Content:" << (char *)cur_node->content;
         }
 
-            deep++;
+//            deep++;
 //        qDebug()<< endl;
 
-            qDebug() << "Go deeper, deep: " << deep;
+//            qDebug() << "Go deeper, deep: " << deep;
         fillModelRootItem(cur_node->children, new_child_item, NULL);
 
         // save information about childrens
@@ -217,8 +194,8 @@ void XMLStructureTreeView::fillModelRootItem( _xmlNode          *a_node
                      << new_child_item->data(Qt::DisplayRole).toString();
             new_child_item = NULL;
         }
-            deep--; // all done, go to the next brother
-            qDebug() << "Go back, deep: " << deep;
+//            deep--; // all done, go to the next brother
+//            qDebug() << "Go back, deep: " << deep;
     }
 }
 

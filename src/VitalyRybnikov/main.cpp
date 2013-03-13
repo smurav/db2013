@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
+    // we have at least 1 arg: argv[0] - program name
     if (argc == 1)
     {
         // just start graphic
@@ -31,25 +32,22 @@ int main(int argc, char *argv[])
         return a.exec();
     }
 
-    if (argc > 1)   // at least we have 1 arg: argv[0] - program name
+    if (argc > 1)
     {
-        if (strcmp(argv[1], helpParam) == 0)
-        {
+        if (strcmp(argv[1], helpParam) == 0) {
             help(argv[0]);
             exit(0);
         }
 
-        if (strcmp(argv[1], versionParam) == 0)
-        {
-            printf("Version: 0.0.2\n");
+        if (strcmp(argv[1], versionParam) == 0) {
+            printf("Version: 1.0.0\n");
             exit(0);
         }
     }
 
     if (argc == 2)  // graphic mode, fileName specified || -c without param
     {
-        if (strcmp(argv[1], consoleModeParam) == 0)
-        {
+        if (strcmp(argv[1], consoleModeParam) == 0) {
             // user didn't specified filename for console mode
             help(argv[0]);
             exit(0);
@@ -62,9 +60,9 @@ int main(int argc, char *argv[])
         return a.exec();
     }
 
-    if (argc == 3) {
-        if (strcmp(argv[1], consoleModeParam) == 0)
-        {
+    if (argc == 3)
+    {
+        if (strcmp(argv[1], consoleModeParam) == 0) {
             // console mode, hope with correct filename
             printXMLThreeInConsole_university(argv[2]);
             exit(0);
@@ -107,7 +105,7 @@ void printXMLThreeInConsole_university(char *fileName)
         return;
     }
 
-    /*Get the root element node */
+    /* Get the root element node */
     root_element = xmlDocGetRootElement(doc);
 
     if (root_element == NULL) {
@@ -188,12 +186,3 @@ void printElementNames(xmlNode * a_node)
         deep--; // all done, go to the next brother
     }
 }
-
-
-
-
-
-
-
-
-
