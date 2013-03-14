@@ -3,3 +3,5 @@
 # objects files
 *.o
 *.pro.user
+/debug/*
+/tmp/*

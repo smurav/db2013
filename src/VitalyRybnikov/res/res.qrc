@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file alias="openFile">add_file_128.png</file>
-        <file alias="quit">gnome_shutdown_128.png</file>
-    </qresource>
-</RCC>
