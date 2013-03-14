@@ -2,3 +2,4 @@
 *~
 # objects files
 *.o
+*.pro.user
