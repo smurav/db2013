@@ -1,5 +1,6 @@
 <?xml version="1.1" encoding='UTF-8' ?>
 
+<!DOCTYPE university SYSTEM "mephi.dtd">
 <university name="НИЯУ МИФИ">
 	<faculty name="KиБ">
 		<department group_prefix="К" number="36" name="Информационные системы и технологии">
