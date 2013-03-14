@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding='UTF-8' ?>
+<!DOCTYPE university SYSTEM "mephi.dtd">
+
+<university name="НИЯУ МИФИ">
+	<faculty name="KиБ">
+		<department group_prefix="К" number="36" name="Информационные системы и технологии">
+			<group number="1" entering="2010">
+				<student name="Мельник Леонид" />	
+				<student name="Рыбников Виталий"/>
+				<student name="Толстов Дмитрий"/>
+
+				<student name="Ухоботова Ольга"/>
+
+				<student name="Бузанова Виктория"/>
+				<student name="Овчинников Игорь"/>
+
+				<student name="Казымова Юля"/>
+
+			</group>	
+		</department>
+	</faculty>
+
+	<faculty name="Ф">
+	</faculty>
+
+	<faculty name="Т">
+	</faculty>
+
+	<faculty name="А">
+	</faculty>
+</university>
