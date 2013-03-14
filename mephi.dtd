@@ -1,0 +1,9 @@
+<!ELEMENT university (faculty)+>
+<!ELEMENT faculty (department)+>
+<!ATTLIST faculty name CDATA #REQUIRED >
+<!ELEMENT department (group)+>
+<!ATTLIST department group_prefix number name CDATA #REQUIRED>
+<!ELEMENT group (student)+>
+<!ATTLIST group number entering CDATA #REQUIRED>
+<!ELEMENT student ()+>
+<!ATTLIST student name CDATA #REQUIRED>
