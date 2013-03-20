@@ -1,4 +1,5 @@
 #include "xmlstructuretreeview.h"
+#include "xml_libxml.h"
 #include <QApplication>
 #include <QTextCodec>
 #include <cstdio>
@@ -113,20 +114,20 @@ void printXMLThreeInConsole_university(char *fileName)
         return;
     }
 
-    // good to use DTD for that, or smth else
-    if (xmlStrcmp(root_element->name, (const xmlChar *) "university"))
-    {
-            fprintf(stderr,"document of the wrong type, root node != university\n");
-            xmlFreeDoc(doc);
-            return;
+    /* validate file with DTD
+     **/
+    if (!validateFileWithDTD(fileName)) {
+        fprintf(stderr, "DTD error. Stop.\n");
+        xmlFreeDoc(doc);
+        exit(-1);
     }
 
-    // ok, let's lastly print three)))
+
+    // ok, let's print three
     printElementNames(root_element);
 
     /*free the document */
     xmlFreeDoc(doc);
-
     /*
      *Free the global variables that may
      *have been allocated by the parser.
