@@ -2,15 +2,15 @@
 <!DOCTYPE university [
 
 <!ELEMENT university (faculty+)>
-<!ELEMENT faculty (department+)>
-<!ELEMENT department (group+)>
-<!ELEMENT group (student+)>
-<!ELEMENT student (EMPTY)>
+<!ELEMENT faculty (department*)>
+<!ELEMENT department (group*)>
+<!ELEMENT group (student*)>
+<!ELEMENT student (#PCDATA)>
 
 <!ATTLIST university name CDATA #FIXED "НИЯУ МИФИ">
-<!ATTLIST faculty name (КиБ|Ф|Т|А|У|Р) #REQUIRED>
-<!ATTLIST department group_prefix (К|Б|Ф|Т|А|У|Р) #REQUIRED>
-<!ATTLIST department number (КиБ|Ф|Т|А|У|Р) #REQUIRED>
+<!ATTLIST faculty name CDATA #REQUIRED>
+<!ATTLIST department group_prefix CDATA #REQUIRED>
+<!ATTLIST department number CDATA #REQUIRED>
 <!ATTLIST department name CDATA #REQUIRED>
 <!ATTLIST group number CDATA #REQUIRED>
 <!ATTLIST group entering CDATA #REQUIRED>
