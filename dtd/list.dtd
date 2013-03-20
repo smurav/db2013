@@ -1,0 +1,4 @@
+<! ELEMENT university (faculty) >
+<! ELEMENT faculty (department)>
+<! ELEMENT department (group*)>
+<! ELEMENT group (#PCDATA)>
