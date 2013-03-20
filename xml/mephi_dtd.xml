@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding='UTF-8' ?>
+<!DOCTYPE university [
+
+<!ELEMENT university (faculty+)>
+<!ELEMENT faculty (department+)>
+<!ELEMENT department (group+)>
+<!ELEMENT group (student+)>
+<!ELEMENT student (EMPTY)>
+
+<!ATTLIST university name CDATA #FIXED "НИЯУ МИФИ">
+<!ATTLIST faculty name (КиБ|Ф|Т|А|У|Р) #REQUIRED>
+<!ATTLIST department group_prefix (К|Б|Ф|Т|А|У|Р) #REQUIRED>
+<!ATTLIST department number (КиБ|Ф|Т|А|У|Р) #REQUIRED>
+<!ATTLIST department name CDATA #REQUIRED>
+<!ATTLIST group number CDATA #REQUIRED>
+<!ATTLIST group entering CDATA #REQUIRED>
+<!ATTLIST student name CDATA #REQUIRED>
+
+]>
+<university name="НИЯУ МИФИ">
+    <faculty name="KиБ">
+        <department group_prefix="К" number="36" name="Информационные системы и технологии">
+            <group number="1" entering="2010">
+                <student name="Мельник Леонид" />
+                <student name="Рыбников Виталий"/>
+                <student name="Толстов Дмитрий"/>
+                <student name="Ухоботова Ольга"/>
+                <student name="Бузанова Виктория"/>
+                <student name="Овчинников Игорь"/>
+                <student name="Казымова Юля"/>
+            </group>
+        </department>
+    </faculty>
+
+    <faculty name="Ф">
+    </faculty>
+
+    <faculty name="Т">
+    </faculty>
+
+    <faculty name="А">
+    </faculty>
+</university>
