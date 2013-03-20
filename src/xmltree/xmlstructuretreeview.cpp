@@ -14,7 +14,13 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
     ui(new Ui::XMLStructureTreeView)
 {
     ui->setupUi(this);
+    _model = 0;
     _model = new QStandardItemModel;
+    if (0 == _model) {
+        qDebug() << "Memory fail : we haven't init _model yet";
+        exit(-1);
+//        qApp->exit(-1);   // may be this?
+    }
     ui->statusbar->showMessage(tr("Ready!"));
 
     // maybe we have an arg from console..
@@ -51,8 +57,16 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
 //-------------------
 XMLStructureTreeView::~XMLStructureTreeView()
 {
-    delete ui;
-    delete _model;
+    if (0 != ui)
+    {
+        delete ui;
+        ui = 0;
+    }
+    if (0 != _model)
+    {
+        delete _model;
+        _model = 0;
+    }
 }
 
 //------------------------------------------------------------------------------
@@ -67,8 +81,8 @@ bool XMLStructureTreeView::fillTreeModelWithData()
     _model->clear();
     QStandardItem *root_model_item = new QStandardItem(0, 0);
 
-    xmlDoc *doc = NULL;
-    xmlNode *root_element = NULL;
+    xmlDoc *doc = 0;
+    xmlNode *root_element = 0;
     LIBXML_TEST_VERSION
 
     /* how to convert Qstring <-> char
@@ -79,9 +93,9 @@ bool XMLStructureTreeView::fillTreeModelWithData()
 
         qDebug() << "Try to Open file:" << fileName_c << endl;
     /*parse the file and get the DOM */
-    doc = xmlReadFile(fileName_c, NULL, XML_PARSE_NOBLANKS);
+    doc = xmlReadFile(fileName_c, 0, XML_PARSE_NOBLANKS);
 
-    if (doc == NULL) {
+    if (doc == 0) {
         fprintf(stderr, "error: could not parse file %s\n", fileName_c);
         QMessageBox::critical(this, tr("Ошибка парсинга файла"),
                                 tr("Не удалось распарсить файл.\n"
@@ -97,7 +111,7 @@ bool XMLStructureTreeView::fillTreeModelWithData()
     /* Get the root element node */
     root_element = xmlDocGetRootElement(doc);
 
-    if (root_element == NULL) {
+    if (root_element == 0) {
         fprintf(stderr, "empty document\n");
         xmlFreeDoc(doc);
         ui->statusbar->showMessage(tr("Empty document!"));
@@ -119,7 +133,7 @@ bool XMLStructureTreeView::fillTreeModelWithData()
     }
 
     // fill root_model_item with Data
-    xmlNode *cur_node = NULL;
+    xmlNode *cur_node = 0;
     for (cur_node = root_element; cur_node; cur_node = cur_node->next)
     {
 //        qDebug() << "->NEXT; Node type:" << cur_node->type;
@@ -141,7 +155,7 @@ bool XMLStructureTreeView::fillTreeModelWithData()
 
 
     // ok, let's lastly print this tree to poor user)))
-    QStandardItem *childs = NULL;
+    QStandardItem *childs = 0;
     // construct tree
     // root element must be only one in XML-file (due to standard)
     // childs will one after one be appended to 'root_model_item' if exist any
@@ -162,7 +176,7 @@ void XMLStructureTreeView::fillModelRootItem( _xmlNode          *a_node
                                              , QStandardItem    *new_child_item
                                              )
 {
-    xmlNode *cur_node = NULL;
+    xmlNode *cur_node = 0;
 //    static int deep = 0;                 // current deep-level in tree-hierarchy
 //        qDebug() << "Enter func, deep: " << deep;
 
@@ -170,7 +184,7 @@ void XMLStructureTreeView::fillModelRootItem( _xmlNode          *a_node
     // go along one deep-level (this->brother1->broter2->...)
     for (cur_node = a_node; cur_node; cur_node = cur_node->next)
     {
-        qDebug() << "->NEXT; Node type:" << cur_node->type;
+//        qDebug() << "->NEXT; Node type:" << cur_node->type;
         if (cur_node->type == XML_ELEMENT_NODE)
         {
             xmlChar *uri;
@@ -205,15 +219,15 @@ void XMLStructureTreeView::fillModelRootItem( _xmlNode          *a_node
 //        qDebug()<< endl;
 
 //            qDebug() << "Go deeper, deep: " << deep;
-        fillModelRootItem(cur_node->children, new_child_item, NULL);
+        fillModelRootItem(cur_node->children, new_child_item, 0);
 
         // save information about childrens
-        if (new_child_item != NULL && parent != NULL)
+        if (new_child_item != 0 && parent != 0)
         {
             parent->appendRow(new_child_item);
             qDebug() << "Add children:"
                      << new_child_item->data(Qt::DisplayRole).toString();
-            new_child_item = NULL;
+            new_child_item = 0;
         }
 //            deep--; // all done, go to the next brother
 //            qDebug() << "Go back, deep: " << deep;

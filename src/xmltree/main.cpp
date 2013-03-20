@@ -1,7 +1,6 @@
 #include "xmlstructuretreeview.h"
 #include <QApplication>
 #include <QTextCodec>
-
 #include <cstdio>
 
 #include <libxml/tree.h>
