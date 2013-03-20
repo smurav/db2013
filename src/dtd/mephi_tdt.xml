@@ -9,9 +9,15 @@
 
 <!ATTLIST university name CDATA #FIXED "НИЯУ МИФИ">
 <!ATTLIST faculty name (КиБ|Ф|Т|А|У|Р) #REQUIRED>
+<!ATTLIST department group_prefix (К|Б|Ф|Т|А|У|Р) #REQUIRED>
+<!ATTLIST department number (КиБ|Ф|Т|А|У|Р) #REQUIRED>
+<!ATTLIST department name CDATA #REQUIRED>
+<!ATTLIST group number CDATA #REQUIRED>
+<!ATTLIST group entering CDATA #REQUIRED>
+<!ATTLIST student name CDATA #REQUIRED>
 
 ]>
-<university name="НИЯУ МИ_ФИ">
+<university name="НИЯУ МИФИ">
     <faculty name="KиБ">
         <department group_prefix="К" number="36" name="Информационные системы и технологии">
             <group number="1" entering="2010">
