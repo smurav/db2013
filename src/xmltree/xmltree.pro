@@ -38,10 +38,12 @@ LIBS += -lxml2
 MOC_DIR = $${OBJECTS_DIR}
 
 SOURCES += main.cpp \
-    xmlstructuretreeview.cpp
+    xmlstructuretreeview.cpp \
+    xml_libxml.cpp
 
 HEADERS  += \
-    xmlstructuretreeview.h
+    xmlstructuretreeview.h \
+    xml_libxml.h
 
 FORMS    += \
     xmlstructuretreeview.ui
