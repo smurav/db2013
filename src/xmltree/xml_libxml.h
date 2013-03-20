@@ -3,7 +3,7 @@
 
 // Some common functions
 
-// Validate file with DTD
+// Validate 'filename' with DTD
 bool validateFileWithDTD(const char *filename);
 
 #endif // XML_LIBXML_H
