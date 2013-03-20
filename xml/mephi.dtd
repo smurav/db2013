@@ -1,15 +1,26 @@
 <!DOCTYPE university [
-<!ELEMENT university (faculty*)>
-<!ELEMENT faculty (department*)>
-<!ELEMENT department (group*)>
-<!ELEMENT group (student*)>
-<!ELEMENT student (#PCDATA)>
 
-<!ATTLIST university name CDATA #REQUIRED>
-<!ATTLIST faculty name  CDATA #REQUIRED>
-<!ATTLIST department group_prefix number name CDATA #REQUIRED>
-<!ATTLIST department number CDATA #REQUIRED>
-<!ATTLIST department name CDATA #REQUIRED>
-<!ATTLIST group EDITION CDATA #REQUIRED>
+<!ELEMENT university (faculty+)>
+<!ATTLIST university 
+	name CDATA #REQUIRED>
+
+<!ELEMENT faculty (department+)>
+<!ATTLIST faculty 
+	name CDATA #REQUIRED>
+
+<!ELEMENT department (group+)>
+<!ATTLIST department 
+	group_prefix CDATA #REQUIRED
+	number       CDATA #REQUIRED
+	name 	     CDATA #REQUIRED>
+
+<!ELEMENT group (student+)>
+<!ATTLIST group
+	number 	 CDATA #REQUIRED
+	entering CDATA #REQUIRED>
+
+<!ELEMENT student (#PCDATA)>
+<!ATTLIST student
+	name 	 CDATA #REQUIRED>
 
 ]>

@@ -4,4 +4,4 @@
 *.o
 *.pro.user
 /debug/*
-/tmp/*
+/temp/*
