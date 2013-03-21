@@ -1,0 +1,14 @@
+<!DOCTYPE university [
+<!ELEMENT university (faculty+)>
+<!ELEMENT faculty (department+)>
+<!ATTLIST faculty name CDATA #REQUIRED >
+<!ELEMENT department (group+)>
+<!ATTLIST department group_prefix CDATA #REQUIRED>
+<!ATTLIST department number CDATA #REQUIRED>
+<!ATTLIST department name CDATA #REQUIRED>
+<!ELEMENT group (student+)>
+<!ATTLIST group number entering CDATA #REQUIRED>
+<!ATTLIST group entering CDATA #REQUIRED>
+<!ELEMENT student EMPTY>
+<!ATTLIST student name CDATA #REQUIRED>
+]>

@@ -1,0 +1,9 @@
+<! DOCTYPE university [
+<! ELEMENT university (faculty*)>
+<! ELEMENT faculty (department*)>
+<! ELEMENT department (group*)>
+<! ELEMENT group (student*)>
+<! ELEMENT student (#PCDATA)>
+
+<! ATTLIST university title CDATA #REQUIRED>
+]>
