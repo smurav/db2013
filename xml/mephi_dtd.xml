@@ -5,7 +5,7 @@
 <!ELEMENT faculty (department*)>
 <!ELEMENT department (group*)>
 <!ELEMENT group (student*)>
-<!ELEMENT student (#PCDATA)>
+<!ELEMENT student EMPTY>
 
 <!ATTLIST university name CDATA #FIXED "НИЯУ МИФИ">
 <!ATTLIST faculty name CDATA #REQUIRED>
