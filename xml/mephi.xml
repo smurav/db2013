@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding='UTF-8' ?>
-<!DOCTYPE university SYSTEM "mephi.dtd">
+<!DOCTYPE university [
+
+<!ELEMENT university (faculty+)>
+<!ATTLIST university 
+	name CDATA #REQUIRED>
+
+<!ELEMENT faculty (department+)>
+<!ATTLIST faculty 
+	name CDATA #REQUIRED>
+
+<!ELEMENT department (group+)>
+<!ATTLIST department 
+	group_prefix CDATA #REQUIRED
+	number       CDATA #REQUIRED
+	name 	     CDATA #REQUIRED>
+
+<!ELEMENT group (student+)>
+<!ATTLIST group
+	number 	 CDATA #REQUIRED
+	entering CDATA #REQUIRED>
+
+<!ELEMENT student (EMPTY)>
+<!ATTLIST student
+	name 	 CDATA #REQUIRED>
+
+]>
 
 <university name="НИЯУ МИФИ">
 	<faculty name="KиБ">
