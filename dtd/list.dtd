@@ -2,6 +2,6 @@
 <! ELEMENT university (faculty*) >
 <! ELEMENT faculty (department*)>
 <! ELEMENT department (group*)>
-<! ELEMENT group (students*)>
-<! ELEMENT students (#PCDATA)>
+<! ELEMENT group (student*)>
+<! ELEMENT student (#PCDATA)>
 ]>
