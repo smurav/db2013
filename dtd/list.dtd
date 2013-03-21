@@ -6,4 +6,6 @@
 <! ELEMENT student (#PCDATA)>
 
 <! ATTLIST university title CDATA #REQUIRED>
+<! ATTLIST faculty name CDATA #IMPLIED>
+<! ATTLIST department name CDATA #IMPLIED>
 ]>
