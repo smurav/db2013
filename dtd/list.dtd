@@ -1,5 +1,5 @@
 <! DOCTYPE university [
-<! ELEMENT university (faculty*) >
+<! ELEMENT university (faculty*)>
 <! ELEMENT faculty (department*)>
 <! ELEMENT department (group*)>
 <! ELEMENT group (student*)>
