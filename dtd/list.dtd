@@ -4,4 +4,6 @@
 <! ELEMENT department (group*)>
 <! ELEMENT group (student*)>
 <! ELEMENT student (#PCDATA)>
+
+<! ATTLIST university title CDATA #REQUIRED>
 ]>
