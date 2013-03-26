@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="university" type="University"/>
+	
+	<xs:complexType name="University">
+	  <xs:sequence>
+      		<xs:element name="faculty" type="Faculty"/>
+    	  </xs:sequence>
+	</xs:complexType>
+</xs:schema>
