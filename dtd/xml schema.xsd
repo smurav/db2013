@@ -1,0 +1,25 @@
+<? xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="university" type="University"/>
+  <xs:complexType name="university">
+    <xs:sequence>
+      <xs:element name="faculty" type="Faculty"/>
+      <xs:complexType name="faculty">
+        <xs:sequence>
+          <xs:element name="department" type="Department"/>
+          <xs:complexType name="department">
+          <xs:sequence>
+            <xs:element name="group" type="group"/>
+            <xs:complexType name="group">
+            <xs:sequence>
+              <xs:element name"student" type="xs:string"/>
+            </xs:sequence>
+            </xs:complexType>
+          </xs:sequence>
+          </xs:complexType>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:sequence>
+    </xs:complexType>
+</xs:schema>
