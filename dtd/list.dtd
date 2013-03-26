@@ -7,5 +7,10 @@
 
 <! ATTLIST university title CDATA #REQUIRED>
 <! ATTLIST faculty name CDATA #IMPLIED>
-<! ATTLIST department name CDATA #IMPLIED>
+<! ATTLIST department group_prefix CDATA #IMPLIED>
+<! ATTLIST department numder CDATA #IMPLIED>
+!! ATTLIST department name CDATA #IMPLIED>
+<! ATTLIST group number CDATA #IMPLIED>
+<! ATTLIST group entering CDATA #IMPLIED>
+<! ATTLIST student name CDATA #IMPLIED>
 ]>
