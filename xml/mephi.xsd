@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<xs:schema xmlns="someNamespace or something.">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.w3schools.com"
+	xmlns="http://www.w3schools.com">
 
   <xs:element name="university">
     <xs:complexType>
       <xs:element name="faculty"/>
-      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="name" type="xs:string" default="НИЯУ МИФИ" use="required"/>
     </xs:complexType>
   </xs:element>
 
   <xs:element name="faculty">
     <xs:complexType>
       <xs:element name="department"/>
-      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="name" type="xs:string" use="required"/>
     </xs:complexType>
   </xs:element>
 
   <xs:element name="department">
     <xs:complexType>
        <xs:element name="group"/>
-       <xs:attribute name="group_prefix" type="xs:string"/>
-       <xs:attribute name="number" type="xs:positiveInteger"/>
-       <xs:attribute name="name" type="xs:string"/>    
+       <xs:attribute name="group_prefix" type="xs:string" use="required"/>
+       <xs:attribute name="number" type="xs:positiveInteger" use="required"/>
+       <xs:attribute name="name" type="xs:string" use="required"/>    
     </xs:complexType>
   </xs:element>
 
   <xs:element name="group">
     <xs:complexType>
       <xs:element name="student"/>
-      <xs:attribute name="number" type="xs:positiveInteger"/>
-      <xs:attribute name="entering" type="xs:positiveInteger"/>
+      <xs:attribute name="number" type="xs:positiveInteger" use="required"/>
+      <xs:attribute name="entering" type="xs:positiveInteger" use="required"/>
     </xs:complexType>
   </xs:element> 
 
   <xs:element name="student">
     <xs:complexType>
-      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="name" type="xs:string" use="required"/>
     </xs:complexType>
   </xs:element>
 
