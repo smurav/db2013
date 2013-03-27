@@ -3,7 +3,7 @@
 <university name="НИЯУ МИФИ"
 	xmlns="http://www.w3schools.com"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.w3schools.com note.xsd">
+	xsi:schemaLocation="http://www.w3schools.com mephi.xsd">
 
 	<faculty name="KиБ">
 		<department group_prefix="К" number="36" name="Информационные системы и технологии">
