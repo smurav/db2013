@@ -1,27 +1,29 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema 
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:element name="university" type="university-type"/>
+    <xs:element name="university" type="universityT"/>
 
-    <xs:complexType name="university-type">
+    <xs:complexType name="universityT">
       <xs:sequence>	
-        <xs:element name="faculty" type="faculty-type"/>
+        <xs:element name="faculty" type="facultyT"/>
       </xs:sequence>
-      <xs:attribute name="name" type="xs:string" default="НИЯУ МИФИ"/>
+      <xs:attribute name="name" type="xs:string" fixed="НИЯУ МИФИ"/>
     </xs:complexType>
 
-    <xs:complexType name="faculty-type">
+    <xs:complexType name="facultyT">
       <xs:sequence>
-        <xs:element name="department"  type="department-type"/>
+        <xs:element name="department"  type="departmentT"/>
       </xs:sequence>
       <xs:attribute name="name" type="xs:string" use="required"/>
     </xs:complexType>
 
 
-    <xs:complexType name="department-type"/>
+    <xs:complexType name="departmentT">
       <xs:sequence>
-        <xs:element name="group" type="group-type"/>
+        <xs:element name="group" type="groupT"/>
       </xs:sequence>
       <xs:attribute name="group_prefix" type="xs:string" use="required"/>
       <xs:attribute name="number" type="xs:positiveInteger" use="required"/>
@@ -29,16 +31,16 @@
     </xs:complexType>
 
 
-    <xs:complexType name="group-type">
+    <xs:complexType name="groupT">
       <xs:sequence>
-        <xs:element name="student" type="student-type"/>
+        <xs:element name="student" type="studentT"/>
       </xs:sequence>
       <xs:attribute name="number" type="xs:positiveInteger" use="required"/>
       <xs:attribute name="entering" type="xs:positiveInteger" use="required"/>
     </xs:complexType>
 
  
-    <xs:complexType name="student-type">
+    <xs:complexType name="studentT">
       <xs:attribute name="name" type="xs:string" use="required"/>
     </xs:complexType>
 

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding='UTF-8' ?>
+<?xml version="1.0" encoding='utf-8' ?>
 
 <university name="НИЯУ МИФИ"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="shiporder.xsd">
+	xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+        xs:noNamespaceSchemaLocation="mephi.xsd">
 
 	<faculty name="KиБ">
 		<department group_prefix="К" number="36" name="Информационные системы и технологии">
