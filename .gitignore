@@ -1,4 +1,6 @@
 .*
 *~
+.mephi.dtd.*
+.mephi.xml.*
 debug/*
 temp/*
