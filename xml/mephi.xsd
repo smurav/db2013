@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://www.w3schools.com"
-	xmlns="http://www.w3schools.com">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="university">
-    <xs:complexType>
-      <xs:element name="faculty"/>
-      <xs:attribute name="name" type="xs:string" default="НИЯУ МИФИ" use="required"/>
+    <xs:element name="university" type="university-type"/>
+
+    <xs:complexType name="university-type">
+      <xs:sequence>	
+        <xs:element name="faculty" type="faculty-type"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" default="НИЯУ МИФИ"/>
     </xs:complexType>
-  </xs:element>
 
-  <xs:element name="faculty">
-    <xs:complexType>
-      <xs:element name="department"/>
+    <xs:complexType name="faculty-type">
+      <xs:sequence>
+        <xs:element name="department"  type="department-type"/>
+      </xs:sequence>
       <xs:attribute name="name" type="xs:string" use="required"/>
     </xs:complexType>
-  </xs:element>
 
-  <xs:element name="department">
-    <xs:complexType>
-       <xs:element name="group"/>
-       <xs:attribute name="group_prefix" type="xs:string" use="required"/>
-       <xs:attribute name="number" type="xs:positiveInteger" use="required"/>
-       <xs:attribute name="name" type="xs:string" use="required"/>    
+
+    <xs:complexType name="department-type"/>
+      <xs:sequence>
+        <xs:element name="group" type="group-type"/>
+      </xs:sequence>
+      <xs:attribute name="group_prefix" type="xs:string" use="required"/>
+      <xs:attribute name="number" type="xs:positiveInteger" use="required"/>
+      <xs:attribute name="name" type="xs:string" use="required"/>    
     </xs:complexType>
-  </xs:element>
 
-  <xs:element name="group">
-    <xs:complexType>
-      <xs:element name="student"/>
+
+    <xs:complexType name="group-type">
+      <xs:sequence>
+        <xs:element name="student" type="student-type"/>
+      </xs:sequence>
       <xs:attribute name="number" type="xs:positiveInteger" use="required"/>
       <xs:attribute name="entering" type="xs:positiveInteger" use="required"/>
     </xs:complexType>
-  </xs:element> 
 
-  <xs:element name="student">
-    <xs:complexType>
+ 
+    <xs:complexType name="student-type">
       <xs:attribute name="name" type="xs:string" use="required"/>
     </xs:complexType>
-  </xs:element>
 
 </xs:schema>
