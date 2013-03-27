@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema>
 	<xs:element name="university" type="University"/>
 	
 	<xs:complexType name="University">
 	  <xs:sequence>
-      		<xs:element name="faculty" type="Faculty"/>
+      		<xs:element name="faculty" type="Faculty" minOccurs="0"/>
     	  </xs:sequence>
+	  <xs:attribute name="name" type="xs:string" fixed="НИЯУ МИФИ"/>
 	</xs:complexType>
+	
+	<xs:complexType name="Faculty">
+	  <xs:sequence>
+      		<xs:element name="department" type="Department" minOccurs="0"/>
+    	  </xs:sequence>
+	  <xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="Department">
+	  <xs:sequence>
+      		<xs:element name="group" type="Group" minOccurs="0"/>	
+    	  </xs:sequence>
+	  <xs:attribute name="group_prefix" type="xs:string" use="required"/>
+	  <xs:attribute name="number" type="xs:positiveInteger" use="required"/>
+	  <xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="Group">
+	  <xs:sequence>
+      		<xs:element name="student" minOccurs="0">
+			<xs:complexType>
+    				<xs:attribute name="name" type="xs:string"/>
+  			</xs:complexType>
+		</xs:element>
+	  </xs:sequence>
+	  <xs:attribute name="number" type="xs:positiveInteger" use="required"/>
+	  <xs:attribute name="entering" type="xs:gYear" use="required"/>  
+	</xs:complexType>
+
 </xs:schema>
