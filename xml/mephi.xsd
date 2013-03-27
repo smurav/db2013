@@ -2,26 +2,36 @@
 
 <xs:schema xmlns="someNamespace or something.">
 
-  <xs:element name="university" type="university-type"/>
-  <xs:element name="faculty" type="faculty-type"/>
-  <xs:element name="department" type="department-type"/>
-  <xs:element name="group" type="group-type"/>
-  
-  <xs:complexType name="university-type">
-      <xs:element name="faculty" type="faculty-type">
-  </xs:complexType>
+  <xs:element name="university"/>
+    <xs:complexType>
+      <xs:element name="faculty"/>
+      <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
 
+  <xs:element name="faculty"/>
+    <xs:complexType>
+      <xs:element name="department"/>
+      <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
 
-  <xs:complexType name="faculty-type">
-      <xs:element name="department" type="faculty-type">
-  </xs:complexType>
+  <xs:element name="department"/>
+    <xs:complexType>
+       <xs:element name="group"/>
+       <xs:attribute name="group_prefix" type="xs:string"/>
+       <xs:attribute name="number" type="xs:positiveInteger"/>
+       <xs:attribute name="name" type="xs:string"/>    
+    </xs:complexType>
+  </xs:element>
 
-  <xs:complexType name="department-type">
-      <xs:element name="group" type="faculty-type">
-  </xs:complexType>
+   <xs:element name="group"/>
+    <xs:complexType>
+      <xs:element name="student"/>
+      <xs:attribute name="number" type="xs:positiveInteger"/>
+      <xs:attribute name="entering" type="xs:positiveInteger"/>
+    </xs:complexType>
+  </xs:element> 
 
-  <xs:complexType name="group-type">
-      <xs:element name="student"">
-  </xs:complexType>
 
 </xs:schema>
