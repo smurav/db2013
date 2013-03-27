@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding='UTF-8' ?>
-<university name="НИЯУ МИФИ">
+<university name="НИЯУ МИФИ" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="mephi.xsd">
 	<faculty name="KиБ">
 		<department group_prefix="К" number="36" name="Информационные системы и технологии">
 			<group number="1" entering="2010">
