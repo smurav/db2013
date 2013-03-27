@@ -1,0 +1,9 @@
+Simple program to validaet xml-file usinf corresponding dtd-diagram.
+
+Complite:
+    $ make
+
+Output program will be in ../../../temp/ folder
+
+Usage:
+    ./validate-xml-dtd <validate_xml_file>
