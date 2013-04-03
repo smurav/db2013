@@ -71,7 +71,7 @@ XMLStructureTreeView::~XMLStructureTreeView()
 }
 
 //------------------------------------------------------------------------------
-/* Parse XML file '_fileName' and fill model '_model'
+/* Parse XML file @_fileName and fill model @_model
  * with data as tree
  **/
 bool XMLStructureTreeView::fillTreeModelWithData()

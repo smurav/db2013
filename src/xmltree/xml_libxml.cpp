@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
+#include <assert.h>
 
 #include "xml_libxml.h"
 #include <libxml/xmlreader.h>
@@ -70,14 +71,61 @@ bool validateFileWithDTD(const char *filename)
  *
  * Returns 0 on success and a negative value otherwise.
  */
-int execute_xpath_expression(const xmlChar *xpathExpr)
+int execute_xpath_expression(const char *filename, const xmlChar *xpathExpr)
 {
-    #if defined(LIBXML_XPATH_ENABLED) && defined(LIBXML_SAX1_ENABLED)
-    return 0;
+#if defined(LIBXML_XPATH_ENABLED) && defined(LIBXML_SAX1_ENABLED)
 
-    #else
+    xmlDocPtr doc;
+    xmlXPathContextPtr xpathCtx;
+    xmlXPathObjectPtr xpathObj;
+
+    assert(filename);
+    assert(xpathExpr);
+
+    /* Init libxml */
+    xmlInitParser();
+    LIBXML_TEST_VERSION
+
+    /* Load XML document */
+    doc = xmlParseFile(filename);
+    if (0 == doc) {
+        fprintf(stderr, "Error: unable to parse file \"%s\"\n", filename);
+        return (-1);
+    }
+
+    /* Create xpath evaluation context */
+    xpathCtx = xmlXPathNewContext(doc);
+    if (0 == xpathCtx) {
+        fprintf(stderr,"Error: unable to create new XPath context\n");
+        xmlFreeDoc(doc);
+        return (-1);
+    }
+
+    /* Evaluate xpath expression */
+    xpathObj = xmlXPathEvalExpression(xpathExpr, xpathCtx);
+    if (0 == xpathObj) {
+        fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", xpathExpr);
+        xmlXPathFreeContext(xpathCtx);
+        xmlFreeDoc(doc);
+        return (-1);
+    }
+
+    // Executing done.
+
+
+
+
+    /* Cleanup */
+    xmlXPathFreeObject(xpathObj);
+    xmlXPathFreeContext(xpathCtx);
+    xmlFreeDoc(doc);
+    /* Shutdown libxml */
+    xmlCleanupParser();
+
+    return 0;
+#else
     fprintf(stderr, "XPath support not compiled in\n");
     exit(1);
-    #endif
+#endif
 }
 
