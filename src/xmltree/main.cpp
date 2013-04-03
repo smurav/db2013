@@ -10,8 +10,6 @@
 
 void help(char *programName);
 void printXMLThreeInConsole_university(char *fileName);
-void printSpaces(int count);
-void printElementNames(xmlNode * a_node);
 
 int main(int argc, char *argv[])
 {
@@ -136,54 +134,5 @@ void printXMLThreeInConsole_university(char *fileName)
     xmlCleanupParser();
 }
 
-//-------------------------------
-// Print 'count' spaces (need to draw 'fake three' in console)
-void printSpaces(int count)
-{
-    printf("*|");
-    for (int k = 1; k <= count; ++k)
-    {
-        printf("--");
-        if ( (k) % 2)
-            printf("|");
-    }
-}
 
-//-------------------------------
-// Print Names for given node 'a_node'
-// for this node, sibling, and their childs (recursivle)
-void printElementNames(xmlNode * a_node)
-{
-    xmlNode *cur_node = NULL;
-//    int k = 0;
-    static int deep = 0;    // current deep-level in three-hierarchy
 
-    // go along one deep-level (this->brother1->broter2->...)
-    for (cur_node = a_node; cur_node; cur_node = cur_node->next)
-    {
-        if (cur_node->type == XML_ELEMENT_NODE)
-        {
-//                ++k;
-            printSpaces(deep);
-            // print:  'helpful integer _ attribute name = attribute value'
-            //          for firsts attrbs
-//            printf("%d _ %s = %s\n", k, cur_node->properties->name,
-//                                      cur_node->properties->children->content
-//                                        );
-            xmlChar *uri;
-            // We interested only in attrs 'name'
-            uri = xmlGetProp(cur_node, (xmlChar *)"name");
-            if (uri)
-                printf("%s\n", uri);
-            else                    // perhaps, it's 'group' tag
-                printf("%s %s, %s\n", cur_node->name,
-                       xmlGetProp(cur_node, (xmlChar *)"number"),
-                       xmlGetProp(cur_node, (xmlChar *)"entering")
-                       );
-        }
-        // print information about children
-        deep++;
-        printElementNames(cur_node->children);
-        deep--; // all done, go to the next brother
-    }
-}
