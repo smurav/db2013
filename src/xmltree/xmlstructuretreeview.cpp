@@ -43,6 +43,10 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
             this, SLOT(actionOpen_fileTriggered())
             );
 
+    connect(ui->actionChoose, SIGNAL(triggerd()),
+            this, SLOT(actionChoose_triggered())
+            );
+
     connect(ui->actionExit, SIGNAL(triggered()),
             qApp, SLOT(quit())
             );
@@ -271,7 +275,10 @@ void XMLStructureTreeView::actionOpen_fileTriggered()
 }
 
 
+void XMLStructureTreeView::actionChoose_triggered()
+{
 
+}
 
 
 

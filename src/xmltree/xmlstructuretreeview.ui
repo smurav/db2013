@@ -76,12 +76,12 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionOpen_file"/>
+   <addaction name="actionChoose"/>
   </widget>
   <action name="actionOpen_file">
    <property name="icon">
-    <iconset>
-     <normaloff/>
-    </iconset>
+    <iconset resource="res/res.qrc">
+     <normaloff>:/openFile</normaloff>:/openFile</iconset>
    </property>
    <property name="text">
     <string>Open file...</string>
@@ -94,6 +94,10 @@
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="res/res.qrc">
+     <normaloff>:/quit</normaloff>:/quit</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
@@ -106,16 +110,18 @@
   </action>
   <action name="actionChoose">
    <property name="text">
-    <string>Выбрать</string>
+    <string>Find/Choose</string>
    </property>
    <property name="toolTip">
-    <string>Выбрать через Xpath</string>
+    <string>Создать выборку</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+F, Shift+C</string>
+    <string>Shift+С</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="res/res.qrc"/>
+ </resources>
  <connections/>
 </ui>
