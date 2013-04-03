@@ -16,9 +16,9 @@ CXXFLAGS      = -pipe -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fstack-protect
 INCPATH       = -I/usr/lib/qt4/mkspecs/linux-g++ -I. -I/usr/include/QtCore -I/usr/include/QtGui -I/usr/include -I../include -I/usr/include/libxml2 -I../../temp/db2013/debug -I.
 LINK          = g++
 LFLAGS        = -Wl,-O1
-LIBS          = $(SUBLIBS)   -lxml2 -lQtGui -lQtCore -lpthread 
+LIBS          = $(SUBLIBS)   -lxml2 -lQtGui -lQtCore -lpthread
 AR            = ar cqs
-RANLIB        = 
+RANLIB        =
 QMAKE         = /usr/bin/qmake-qt4
 TAR           = tar -cf
 COMPRESS      = gzip -9f
@@ -26,7 +26,7 @@ COPY          = cp -f
 SED           = sed
 COPY_FILE     = $(COPY)
 COPY_DIR      = $(COPY) -r
-STRIP         = 
+STRIP         =
 INSTALL_FILE  = install -m 644 -p
 INSTALL_DIR   = $(COPY_DIR)
 INSTALL_PROGRAM = install -m 755 -p
@@ -100,8 +100,8 @@ first: all
 
 all: Makefile $(TARGET)
 
-$(TARGET): ui_xmlstructuretreeview.h $(OBJECTS)  
-	@$(CHK_DIR_EXISTS) ../../debug/ || $(MKDIR) ../../debug/ 
+$(TARGET): ui_xmlstructuretreeview.h $(OBJECTS)
+	@$(CHK_DIR_EXISTS) ../../debug/ || $(MKDIR) ../../debug/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: xmltree.pro  /usr/lib/qt4/mkspecs/linux-g++/qmake.conf /usr/lib/qt4/mkspecs/common/g++-multilib.conf \
@@ -146,12 +146,12 @@ Makefile: xmltree.pro  /usr/lib/qt4/mkspecs/linux-g++/qmake.conf /usr/lib/qt4/mk
 qmake:  FORCE
 	@$(QMAKE) -unix -o Makefile xmltree.pro
 
-dist: 
-	@$(CHK_DIR_EXISTS) ../../temp/db2013/debug/xmltree1.0.0 || $(MKDIR) ../../temp/db2013/debug/xmltree1.0.0 
+dist:
+	@$(CHK_DIR_EXISTS) ../../temp/db2013/debug/xmltree1.0.0 || $(MKDIR) ../../temp/db2013/debug/xmltree1.0.0
 	$(COPY_FILE) --parents $(SOURCES) $(DIST) ../../temp/db2013/debug/xmltree1.0.0/ && $(COPY_FILE) --parents xmlstructuretreeview.h xml_libxml.h ../../temp/db2013/debug/xmltree1.0.0/ && $(COPY_FILE) --parents res/res.qrc ../../temp/db2013/debug/xmltree1.0.0/ && $(COPY_FILE) --parents main.cpp xmlstructuretreeview.cpp xml_libxml.cpp ../../temp/db2013/debug/xmltree1.0.0/ && $(COPY_FILE) --parents xmlstructuretreeview.ui ../../temp/db2013/debug/xmltree1.0.0/ && (cd `dirname ../../temp/db2013/debug/xmltree1.0.0` && $(TAR) xmltree1.0.0.tar xmltree1.0.0 && $(COMPRESS) xmltree1.0.0.tar) && $(MOVE) `dirname ../../temp/db2013/debug/xmltree1.0.0`/xmltree1.0.0.tar.gz . && $(DEL_FILE) -r ../../temp/db2013/debug/xmltree1.0.0
 
 
-clean:compiler_clean 
+clean:compiler_clean
 	-$(DEL_FILE) $(OBJECTS)
 	-$(DEL_FILE) *~ core *.core
 
@@ -159,7 +159,7 @@ clean:compiler_clean
 ####### Sub-libraries
 
 distclean: clean
-	-$(DEL_FILE) $(TARGET) 
+	-$(DEL_FILE) $(TARGET)
 	-$(DEL_FILE) Makefile
 
 
@@ -198,7 +198,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_header_clean compiler_rcc_clean compiler_uic_clean 
+compiler_clean: compiler_moc_header_clean compiler_rcc_clean compiler_uic_clean
 
 ####### Compile
 
@@ -214,10 +214,10 @@ compiler_clean: compiler_moc_header_clean compiler_rcc_clean compiler_uic_clean
 ../../temp/db2013/debug/xml_libxml.o: xml_libxml.cpp xml_libxml.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../temp/db2013/debug/xml_libxml.o xml_libxml.cpp
 
-../../temp/db2013/debug/moc_xmlstructuretreeview.o: ../../temp/db2013/debug/moc_xmlstructuretreeview.cpp 
+../../temp/db2013/debug/moc_xmlstructuretreeview.o: ../../temp/db2013/debug/moc_xmlstructuretreeview.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../temp/db2013/debug/moc_xmlstructuretreeview.o ../../temp/db2013/debug/moc_xmlstructuretreeview.cpp
 
-../../temp/db2013/debug/qrc_res.o: qrc_res.cpp 
+../../temp/db2013/debug/qrc_res.o: qrc_res.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../temp/db2013/debug/qrc_res.o qrc_res.cpp
 
 ####### Install
