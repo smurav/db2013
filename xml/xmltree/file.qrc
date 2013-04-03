@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/file">
-        <file>mephi.xml</file>
-        <file>result</file>
-    </qresource>
-</RCC>
