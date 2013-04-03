@@ -28,6 +28,8 @@ debug {
 }
 
 win32 {
+INCLUDEPATH = C:/libxml/include/
+LIBS += C:/libxml/bin/libxml2.dll
 } else {
 INCLUDEPATH += /usr/include/libxml2
   #                 /usr/include
