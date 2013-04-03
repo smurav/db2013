@@ -2,12 +2,14 @@
 #include <cstdlib>
 #include <assert.h>
 
-#include "xml_libxml.h"
 #include <libxml/xmlreader.h>
 #include <libxml/parser.h>
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 
+#include "xml_libxml.h"
+
+#include <QDebug>
 
 // Main validation process
 bool validateFileWithDTD(const char *filename)
@@ -111,9 +113,41 @@ int execute_xpath_expression(const char *filename, const xmlChar *xpathExpr)
     }
 
     // Executing done.
+    qDebug() << "executing fin.";
+//    printf("%s\n", "executing fin.");
 
 
+    xmlNodeSetPtr nodes = xpathObj->nodesetval;
+    xmlNodePtr cur;
+    int size;
+    int i;
 
+    size = (nodes) ? nodes->nodeNr : 0;
+
+    fprintf(stdout, "Result (%d nodes):\n", size);
+    for(i = 0; i < size; ++i)
+    {
+        assert(nodes->nodeTab[i]);
+        xmlChar *uri;
+
+        if(nodes->nodeTab[i]->type == XML_ELEMENT_NODE)
+        {
+            cur = nodes->nodeTab[i];
+            if (cur->ns) {
+                fprintf(stdout, "|= element node \"%s:%s\"\n",
+                                        cur->ns->href, cur->name);
+            } else {
+                fprintf(stdout, "= element node \"%s\"\n", cur->name);
+            }
+        }
+        else {
+            cur = nodes->nodeTab[i];
+            fprintf(stdout, "|= node \"%s\": type %d\n", cur->name, cur->type);
+
+            uri = xmlGetProp(cur, (xmlChar *)"name");
+            fprintf(stdout, "|= node \"%s\": type %d\n", uri, cur->type);
+        }
+    }
 
     /* Cleanup */
     xmlXPathFreeObject(xpathObj);

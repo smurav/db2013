@@ -210,7 +210,8 @@ register_namespaces(xmlXPathContextPtr xpathCtx, const xmlChar* nsList) {
  * Prints the @nodes content to @output.
  */
 void
-print_xpath_nodes(xmlNodeSetPtr nodes, FILE* output) {
+print_xpath_nodes(xmlNodeSetPtr nodes, FILE* output)
+{
     xmlNodePtr cur;
     int size;
     int i;
