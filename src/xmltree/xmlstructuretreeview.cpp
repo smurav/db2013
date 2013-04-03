@@ -47,6 +47,10 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
             qApp, SLOT(quit())
             );
 
+    connect(ui->actionChoose, SIGNAL(triggered()),
+            this, SLOT(actionChoose_triggered())
+            );
+
     /* Icon Naming Specification for `themes' icons`
      * http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html
      **/
@@ -290,7 +294,7 @@ void XMLStructureTreeView::actionOpen_fileTriggered()
 
 void XMLStructureTreeView::actionChoose_triggered()
 {
-
+    qDebug() << "Choose action triggered";
 }
 
 
