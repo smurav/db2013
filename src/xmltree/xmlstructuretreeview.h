@@ -32,6 +32,7 @@ private:
 
 private slots:
     void actionOpen_fileTriggered();
+    void actionChoose_triggered();
 };
 
 #endif // XMLSTRUCTURETREEVIEW_H

@@ -7,6 +7,7 @@
 #include <libxml/tree.h>
 #include <libxml/parser.h>
 
+
 void help(char *programName);
 void printXMLThreeInConsole_university(char *fileName);
 void printSpaces(int count);
