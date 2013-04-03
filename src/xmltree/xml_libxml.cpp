@@ -1,7 +1,12 @@
-#include "xml_libxml.h"
-#include <libxml/xmlreader.h>
 #include <cstdio>
 #include <cstdlib>
+
+#include "xml_libxml.h"
+#include <libxml/xmlreader.h>
+#include <libxml/parser.h>
+#include <libxml/xpath.h>
+#include <libxml/xpathInternals.h>
+
 
 // Main validation process
 bool validateFileWithDTD(const char *filename)
@@ -56,4 +61,23 @@ bool validateFileWithDTD(const char *filename)
 #endif
 }
 
+
+/**
+ * execute_xpath_expression:
+ * @xpathExpr:      the xpath expression for evaluation.
+ *
+ * Parses input XML file @_fileName, evaluates XPath expression and ....?!
+ *
+ * Returns 0 on success and a negative value otherwise.
+ */
+int execute_xpath_expression(const xmlChar *xpathExpr)
+{
+    #if defined(LIBXML_XPATH_ENABLED) && defined(LIBXML_SAX1_ENABLED)
+    return 0;
+
+    #else
+    fprintf(stderr, "XPath support not compiled in\n");
+    exit(1);
+    #endif
+}
 

@@ -22,17 +22,21 @@
 
 
 static void usage(const char *name);
-int  execute_xpath_expression(const char* filename, const xmlChar* xpathExpr, const xmlChar* nsList);
+int  execute_xpath_expression(const char* filename,
+                              const xmlChar* xpathExpr,
+                              const xmlChar* nsList
+                              );
 int  register_namespaces(xmlXPathContextPtr xpathCtx, const xmlChar* nsList);
 void print_xpath_nodes(xmlNodeSetPtr nodes, FILE* output);
 
 int
 main(int argc, char **argv) {
     /* Parse command line and process file */
-    if((argc < 3) || (argc > 4)) {
-    fprintf(stderr, "Error: wrong number of arguments.\n");
-    usage(argv[0]);
-    return(-1);
+    if((argc < 3) || (argc > 4))
+    {
+        fprintf(stderr, "Error: wrong number of arguments.\n");
+        usage(argv[0]);
+        return(-1);
     }
 
     /* Init libxml */
@@ -40,9 +44,10 @@ main(int argc, char **argv) {
     LIBXML_TEST_VERSION
 
     /* Do the main job */
-    if(execute_xpath_expression(argv[1], BAD_CAST argv[2], (argc > 3) ? BAD_CAST argv[3] : NULL) < 0) {
-    usage(argv[0]);
-    return(-1);
+    if(execute_xpath_expression(argv[1], BAD_CAST argv[2], (argc > 3) ? BAD_CAST argv[3] : NULL) < 0)
+    {
+        usage(argv[0]);
+        return(-1);
     }
 
     /* Shutdown libxml */
@@ -82,7 +87,10 @@ usage(const char *name) {
  * Returns 0 on success and a negative value otherwise.
  */
 int
-execute_xpath_expression(const char* filename, const xmlChar* xpathExpr, const xmlChar* nsList) {
+execute_xpath_expression(const char* filename,
+                         const xmlChar* xpathExpr,
+                         const xmlChar* nsList)
+{
     xmlDocPtr doc;
     xmlXPathContextPtr xpathCtx;
     xmlXPathObjectPtr xpathObj;
@@ -93,7 +101,7 @@ execute_xpath_expression(const char* filename, const xmlChar* xpathExpr, const x
     /* Load XML document */
     doc = xmlParseFile(filename);
     if (doc == NULL) {
-    fprintf(stderr, "Error: unable to parse file \"%s\"\n", filename);
+        fprintf(stderr, "Error: unable to parse file \"%s\"\n", filename);
     return(-1);
     }
 
