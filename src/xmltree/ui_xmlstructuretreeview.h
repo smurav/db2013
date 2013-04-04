@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'xmlstructuretreeview.ui'
 **
-** Created: Thu Apr 4 09:31:28 2013
+** Created: Thu Apr 4 09:42:38 2013
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -74,7 +74,7 @@ public:
         XMLStructureTreeView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(XMLStructureTreeView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 500, 24));
+        menubar->setGeometry(QRect(0, 0, 500, 25));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         XMLStructureTreeView->setMenuBar(menubar);

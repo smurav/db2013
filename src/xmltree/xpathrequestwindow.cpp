@@ -26,5 +26,5 @@ QString XPathRequestWindow::getRequestLine()
 
 void XPathRequestWindow::okButtonClicked()
 {
-    this->requestLine = this->ui->requestLineEdit->text();
+    *requestLine = this->ui->requestLineEdit->text();
 }

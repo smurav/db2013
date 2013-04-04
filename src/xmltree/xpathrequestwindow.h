@@ -20,7 +20,7 @@ public:
     
 private:
     Ui::XPathRequestWindow *ui;
-    QString*                requestLine;
+    QString                *requestLine;
 
 private slots:
     void okButtonClicked();
