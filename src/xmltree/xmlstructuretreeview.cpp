@@ -267,6 +267,7 @@ void XMLStructureTreeView::actionOpen_fileTriggered()
         _fileName = fileName;
         if (fillTreeModelWithData())
         {
+            ui->actionChoose->setEnabled(true);
             ui->treeView->expandAll();
 //            qDebug() << "File Parse: success";
 
