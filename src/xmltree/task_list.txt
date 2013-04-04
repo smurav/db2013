@@ -1,4 +1,4 @@
-v1.0
+v1.1
 
 Task list ...
 
@@ -6,7 +6,8 @@ Task list ...
 2.[+] Add slot - runXpathTriggered (must get QString with "XPath query")
 3.[+] Add functions for working with XML by libxml (xpath direction)
 4.[+] Connect Slot and Functions to get list (?) - answer from libxml
-5.[+] Displat it somehow
+5.[+] Display it somehow
+6. Display it in GUI
 
 
 
