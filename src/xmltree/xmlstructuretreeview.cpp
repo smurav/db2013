@@ -281,7 +281,8 @@ void XMLStructureTreeView::actionChoose_triggered()
 
     if(requestWindow.exec())
     {
-        //QString someVariable = requestWindow.getRequestLine();
+        QString someVariable = requestWindow.getRequestLine();
+        qDebug() << someVariable;
     }
 }
 
