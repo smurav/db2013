@@ -19,7 +19,7 @@ XPathRequestWindow::~XPathRequestWindow()
 }
 
 
-QString XPathRequestWindow::getContentsMargins()
+QString XPathRequestWindow::getRequestLine()
 {
     return *requestLine;
 }
