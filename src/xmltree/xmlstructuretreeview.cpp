@@ -269,11 +269,8 @@ void XMLStructureTreeView::actionOpen_fileTriggered()
         {
             ui->actionChoose->setEnabled(true);
             ui->treeView->expandAll();
-//            qDebug() << "File Parse: success";
-
-
-
-        } else {
+        }
+        else {
             qDebug() << "File Parse ERROR!";
         }
     }
@@ -291,16 +288,18 @@ void XMLStructureTreeView::actionChoose_triggered()
         QString xpath_expr = requestWindow.getRequestLine();
 
         QByteArray buffBA;
-//        QString xpath_expr = "//student";
 
         buffBA = _fileName.toUtf8();
         const char *fileName_c = buffBA.constData();
 
-        buffBA = xpath_expr.toUtf8();
-        const char *xpath_expr_c = buffBA.constData();
+
+        QByteArray buffBA2;
+        buffBA2 = xpath_expr.toUtf8();
+        const char *xpath_expr_c = buffBA2.constData();
 
         qDebug() << "Your input: " << xpath_expr;
-        qDebug() << "Expressiom in C_str: " << (*xpath_expr_c);
+        qDebug() << "Expressiom in C_str: " << xpath_expr_c;
+        qDebug() << "filename : " << fileName_c;
 
         int rc = execute_xpath_expression(fileName_c, (xmlChar *)xpath_expr_c);
         if (0 != rc) {
