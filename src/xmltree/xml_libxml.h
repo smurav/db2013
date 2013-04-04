@@ -5,6 +5,8 @@
 
 #include <libxml/parser.h>
 
+class QStandardItemModel;
+
 // Validate 'filename' with DTD
 bool validateFileWithDTD(const char *filename);
 

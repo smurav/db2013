@@ -7,9 +7,11 @@
 #include <libxml/parser.h>
 #include <libxml/xpath.h>
 
+#include <QStandardItemModel>
+#include <QDebug>
+
 #include "xml_libxml.h"
 
-#include <QDebug>
 
 // Main validation process
 bool validateFileWithDTD(const char *filename)

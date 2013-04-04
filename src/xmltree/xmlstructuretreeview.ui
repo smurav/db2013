@@ -39,7 +39,7 @@
      <x>0</x>
      <y>0</y>
      <width>500</width>
-     <height>25</height>
+     <height>32</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -119,7 +119,7 @@
     <string>Создать выборку</string>
    </property>
    <property name="shortcut">
-    <string>Shift+С</string>
+    <string>Ctrl+F</string>
    </property>
   </action>
  </widget>
