@@ -2,11 +2,11 @@ v1.0
 
 Task list ...
 
-1. Add button in gui with pop-up "text-field + btn" by pressing it
-2. Add slot - runXpathTriggered (must get QString with "XPath query")
+1.[+] Add button in gui with pop-up "text-field + btn" by pressing it
+2.[+] Add slot - runXpathTriggered (must get QString with "XPath query")
 3.[+] Add functions for working with XML by libxml (xpath direction)
-4. Connect Slot and Functions to get list (?) - answer from libxml
-5. Displat it somehow
+4.[+] Connect Slot and Functions to get list (?) - answer from libxml
+5.[+] Displat it somehow
 
 
 
