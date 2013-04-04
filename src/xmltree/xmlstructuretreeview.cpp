@@ -271,19 +271,7 @@ void XMLStructureTreeView::actionOpen_fileTriggered()
 //            qDebug() << "File Parse: success";
 
 
-            QByteArray buffBA;
-            QString xpath_expr = "//student";
 
-            buffBA = _fileName.toUtf8();
-            const char *fileName_c = buffBA.constData();
-
-            buffBA = xpath_expr.toUtf8();
-            const char *xpath_expr_c = buffBA.constData();
-
-            int rc = execute_xpath_expression(fileName_c, (xmlChar *)xpath_expr_c);
-            if (0 != rc) {
-                qDebug() << "Smth bad with execute_xpath_expr";
-            }
         } else {
             qDebug() << "File Parse ERROR!";
         }
@@ -299,8 +287,23 @@ void XMLStructureTreeView::actionChoose_triggered()
 
     if(requestWindow.exec())
     {
-        QString someVariable = requestWindow.getRequestLine();
-        qDebug() << someVariable;
+        QString xpath_expr = requestWindow.getRequestLine();
+        qDebug() << xpath_expr;
+
+        QByteArray buffBA;
+//        QString xpath_expr = "//student";
+
+        buffBA = _fileName.toUtf8();
+        const char *fileName_c = buffBA.constData();
+
+        buffBA = xpath_expr.toUtf8();
+        const char *xpath_expr_c = buffBA.constData();
+
+        int rc = execute_xpath_expression(fileName_c, (xmlChar *)xpath_expr_c);
+        if (0 != rc) {
+            qDebug() << "Smth bad with execute_xpath_expr";
+        }
+
     }
 }
 
