@@ -272,7 +272,7 @@ void XMLStructureTreeView::actionOpen_fileTriggered()
 
 
             QByteArray buffBA;
-            QString xpath_expr = "/*";
+            QString xpath_expr = "//student";
 
             buffBA = _fileName.toUtf8();
             const char *fileName_c = buffBA.constData();
@@ -284,7 +284,6 @@ void XMLStructureTreeView::actionOpen_fileTriggered()
             if (0 != rc) {
                 qDebug() << "Smth bad with execute_xpath_expr";
             }
-
         } else {
             qDebug() << "File Parse ERROR!";
         }

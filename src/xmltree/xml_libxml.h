@@ -13,6 +13,8 @@ int execute_xpath_expression(const char* filename, const xmlChar *xpathExpr);
 
 void printElementNames(xmlNode * a_node);
 
+void printElementChildes(xmlNode *a_node);
+
 void printSpaces(int count);
 
 #endif // XML_LIBXML_H
