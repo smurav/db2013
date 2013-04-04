@@ -294,6 +294,14 @@ void XMLStructureTreeView::actionOpen_fileTriggered()
 void XMLStructureTreeView::actionChoose_triggered()
 {
     qDebug() << "Choose action triggered";
+
+    XPathRequestWindow requestWindow;
+
+    if(requestWindow.exec())
+    {
+        QString someVariable = requestWindow.getRequestLine();
+        qDebug() << someVariable;
+    }
 }
 
 

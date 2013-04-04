@@ -41,14 +41,17 @@ MOC_DIR = $${OBJECTS_DIR}
 
 SOURCES += main.cpp \
     xmlstructuretreeview.cpp \
-    xml_libxml.cpp
+    xml_libxml.cpp \
+    xpathrequestwindow.cpp
 
 HEADERS  += \
     xmlstructuretreeview.h \
-    xml_libxml.h
+    xml_libxml.h \
+    xpathrequestwindow.h
 
 FORMS    += \
-    xmlstructuretreeview.ui
+    xmlstructuretreeview.ui \
+    xpathrequestwindow.ui
 
 RESOURCES += \
     res/res.qrc
