@@ -8,8 +8,8 @@ XPathRequestWindow::XPathRequestWindow(QWidget *parent) :
     ui->setupUi(this);
     requestLine = new QString("");
 
-    connect(ui->buttonBox->accepted,
-            this, okButtonClicked());
+    connect(ui->buttonBox, SIGNAL(accepted()),
+            this, SLOT(okButtonClicked()));
 }
 
 XPathRequestWindow::~XPathRequestWindow()
