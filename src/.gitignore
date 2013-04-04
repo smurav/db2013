@@ -1,2 +1,4 @@
 xmltree-build-*
 xmltree/ui_*.h
+xmltree/Makefile
+
