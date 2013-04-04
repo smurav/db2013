@@ -50,6 +50,7 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
     connect(ui->actionExit, SIGNAL(triggered()),
             qApp, SLOT(quit())
             );
+
     /* Icon Naming Specification for `themes' icons`
      * http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html
      **/
@@ -276,7 +277,12 @@ void XMLStructureTreeView::actionOpen_fileTriggered()
 
 void XMLStructureTreeView::actionChoose_triggered()
 {
+    XPathRequestWindow requestWindow;
 
+    if(requestWindow.exec())
+    {
+        //QString someVariable = requestWindow.getRequestLine();
+    }
 }
 
 
