@@ -20,16 +20,27 @@
 <university name="НИЯУ МИФИ">
     <faculty name="KиБ">
         <department group_prefix="К" number="36" name="Информационные системы и технологии">
-            <group number="1" entering="2010">
-                <student name="Мельник Леонид" />
-                <student name="Рыбников Виталий"/>
-                <student name="Толстов Дмитрий"/>
-                <student name="Ухоботова Ольга"/>
-                <student name="Бузанова Виктория"/>
-                <student name="Овчинников Игорь"/>
-                <student name="Казымова Юля"/>
-            </group>
-        </department>
+       <group number="1" entering="2010">
+           <student name="Мельник Леонид" />
+           <student name="Рыбников Виталий"/>
+           <student name="Толстов Дмитрий"/>
+           <student name="Ухоботова Ольга"/>
+           <student name="Бузанова Виктория"/>
+           <student name="Овчинников Игорь"/>
+           <student name="Казымова Юля"/>
+       </group>
+
+	    <group number="22" entering="2010">
+		<student name="Мsfsdfельник Леонид" />	
+		<student name="Рыбникsfdfsов Виталий"/>
+		<student name="Толстоsfdsfв Дмитрий"/>
+		<student name="Уsdfхоботова Ольга"/>
+
+		<student name="Бузаsfdfнова Виктория"/>
+		<student name="Овчи24342нников Игорь"/>
+		<student name="Казымова 242342Юля"/>
+	</group>
+	</department>
     </faculty>
 
     <faculty name="Ф">

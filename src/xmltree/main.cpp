@@ -1,15 +1,17 @@
-#include "xmlstructuretreeview.h"
-#include "xml_libxml.h"
 #include <QApplication>
 #include <QTextCodec>
 #include <cstdio>
 
-#include <libxml/tree.h>
 #include <libxml/parser.h>
+#include <libxml/tree.h>
+
+#include "xmlstructuretreeview.h"
+#include "xml_libxml.h"
 
 
-void help(char *programName);
-void printXMLThreeInConsole_university(char *fileName);
+void help (char *programName);
+void printXMLThreeInConsole_university (char *fileName);
+
 
 int main(int argc, char *argv[])
 {
@@ -37,9 +39,8 @@ int main(int argc, char *argv[])
             help(argv[0]);
             exit(0);
         }
-
         if (strcmp(argv[1], versionParam) == 0) {
-            printf("Version: 1.0.0\n");
+            printf("Version: 1.1.0\n");
             exit(0);
         }
     }
@@ -81,7 +82,9 @@ void help(char *programName)
     printf("  -h\tShow this help\n");
 }
 
-//-------------------------------
+
+//--------------------------------------------------------------------------------
+
 
 // Print XML structure as Three in console
 void printXMLThreeInConsole_university(char *fileName)
@@ -99,7 +102,7 @@ void printXMLThreeInConsole_university(char *fileName)
     /*parse the file and get the DOM */
     doc = xmlReadFile(fileName, NULL, 0);
 
-    if (doc == NULL) {
+    if (0 == doc) {
         fprintf(stderr, "error: could not parse file %s\n", fileName);
         return;
     }
@@ -107,7 +110,7 @@ void printXMLThreeInConsole_university(char *fileName)
     /* Get the root element node */
     root_element = xmlDocGetRootElement(doc);
 
-    if (root_element == NULL) {
+    if (0 == root_element) {
         fprintf(stderr, "empty document\n");
         xmlFreeDoc(doc);
         return;

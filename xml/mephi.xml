@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding='UTF-8' ?>
-<!DOCTYPE university SYSTEM "ukhobotova.dtd">
 <university name="НИЯУ МИФИ">
 	<faculty name="KиБ">
 		<department group_prefix="К" number="36" name="Информационные системы и технологии">
@@ -16,6 +15,17 @@
 				<student name="Казымова Юля"/>
 
 			</group>	
+
+			<group number="22" entering="2010">
+				<student name="Мsfsdfельник Леонид" />	
+				<student name="Рыбникsfdfsов Виталий"/>
+				<student name="Толстоsfdsfв Дмитрий"/>
+				<student name="Уsdfхоботова Ольга"/>
+
+				<student name="Бузаsfdfнова Виктория"/>
+				<student name="Овчи24342нников Игорь"/>
+				<student name="Казымова 242342Юля"/>
+			</group>
 		</department>
 	</faculty>
 
@@ -26,5 +36,9 @@
 	</faculty>
 
 	<faculty name="А">
+	</faculty>
+
+
+	<faculty name="У">
 	</faculty>
 </university>

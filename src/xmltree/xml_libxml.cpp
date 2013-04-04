@@ -2,10 +2,10 @@
 #include <cstdlib>
 #include <assert.h>
 
+#include <libxml/xpathInternals.h>
 #include <libxml/xmlreader.h>
 #include <libxml/parser.h>
 #include <libxml/xpath.h>
-#include <libxml/xpathInternals.h>
 
 #include "xml_libxml.h"
 
@@ -55,7 +55,7 @@ bool validateFileWithDTD(const char *filename)
 
     // ?..
     xmlCleanupParser();
-    xmlMemoryDump();
+//    xmlMemoryDump();
 
     return result;
 #else
@@ -117,6 +117,8 @@ int execute_xpath_expression(const char *filename, const xmlChar *xpathExpr)
     printf("%s\n", "executing fin.");
 
 
+    // Print results
+    // TODO: print it in gui (save in model? )
     xmlNodeSetPtr nodes = xpathObj->nodesetval;
     xmlNodePtr cur;
     int size;
@@ -132,14 +134,11 @@ int execute_xpath_expression(const char *filename, const xmlChar *xpathExpr)
         if(nodes->nodeTab[i]->type == XML_ELEMENT_NODE)
         {
             cur = nodes->nodeTab[i];
-
-            printf("%d", i);
             if (cur->ns) {
 //                fprintf(stdout, "|= element node \"%s:%s\"\n",
 //                                        cur->ns->href, cur->name);
             } else {
                     xmlChar *uri;
-                    // We interested only in attrs 'name'
                     uri = xmlGetProp(cur, (xmlChar *)"name");
                     if (uri)
                         printf("|*%s\n", uri);
@@ -201,45 +200,8 @@ void printElementNames(xmlNode *a_node)
 void printSpaces(int count)
 {
     printf("*|");
-    for (int k = 1; k <= count; ++k)
-    {
+    for (int k = 1; k <= count; ++k) {
         printf("%s%s", "--", (k % 2) ? "|" : "");
-//        if ( (k) % 2)
-//            printf("|");
     }
 }
-
-
-void
-printElementChildes(xmlNode *a_node)
-{
-    xmlNode *cur_node = NULL;
-    static int deep = 0;    // current deep-level in three-hierarchy
-
-    // go along one deep-level (this->brother1->broter2->...)
-    for (cur_node = a_node; cur_node; cur_node = cur_node->next)
-    {
-        if (cur_node->type == XML_ELEMENT_NODE)
-        {
-            printSpaces(deep);
-
-            xmlChar *uri;
-            // We interested only in attrs 'name'
-            uri = xmlGetProp(cur_node, (xmlChar *)"name");
-            if (uri)
-                printf("%s\n", uri);
-            else                    // perhaps, it's 'group' tag
-                printf("%s %s, %s\n", cur_node->name,
-                       xmlGetProp(cur_node, (xmlChar *)"number"),
-                       xmlGetProp(cur_node, (xmlChar *)"entering")
-                       );
-        }
-        // print information about children
-        deep++;
-        printElementNames(cur_node->children);
-        deep--; // all done, go to the next brother
-    }
-}
-
-
 
