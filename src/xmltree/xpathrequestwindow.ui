@@ -60,7 +60,7 @@
      </layout>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="requestLineEdit"/>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">

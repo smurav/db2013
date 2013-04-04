@@ -6,9 +6,25 @@ XPathRequestWindow::XPathRequestWindow(QWidget *parent) :
     ui(new Ui::XPathRequestWindow)
 {
     ui->setupUi(this);
+    requestLine = new QString("");
+
+    connect(ui->buttonBox->accepted,
+            this, okButtonClicked());
 }
 
 XPathRequestWindow::~XPathRequestWindow()
 {
+    delete requestLine;
     delete ui;
+}
+
+
+QString XPathRequestWindow::getContentsMargins()
+{
+    return *requestLine;
+}
+
+void XPathRequestWindow::okButtonClicked()
+{
+    this->requestLine = this->ui->requestLineEdit->text();
 }
