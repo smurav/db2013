@@ -2,6 +2,7 @@
 #define XMLSTRUCTURETREEVIEW_H
 
 #include <QMainWindow>
+#include <xpathrequestwindow.h>
 
 struct _xmlNode;
 class QStandardItem;
