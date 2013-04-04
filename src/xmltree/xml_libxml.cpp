@@ -75,7 +75,9 @@ bool validateFileWithDTD(const char *filename)
  *
  * Returns 0 on success and a negative value otherwise.
  */
-int execute_xpath_expression(const char *filename, const xmlChar *xpathExpr)
+int execute_xpath_expression(const char *filename,
+                             const xmlChar *xpathExpr,
+                             QStandardItemModel *model)
 {
 #if defined(LIBXML_XPATH_ENABLED) && defined(LIBXML_SAX1_ENABLED)
 
@@ -83,6 +85,10 @@ int execute_xpath_expression(const char *filename, const xmlChar *xpathExpr)
     xmlXPathContextPtr xpathCtx;
     xmlXPathObjectPtr xpathObj;
 
+    if (0 == model) {
+        qDebug() << "Not exist model";
+        return (-1);
+    }
     assert(filename);
     assert(xpathExpr);
 
@@ -137,13 +143,12 @@ int execute_xpath_expression(const char *filename, const xmlChar *xpathExpr)
         {
             cur = nodes->nodeTab[i];
             if (cur->ns) {
-//                fprintf(stdout, "|= element node \"%s:%s\"\n",
-//                                        cur->ns->href, cur->name);
-            } else {
-                    xmlChar *uri;
-                    uri = xmlGetProp(cur, (xmlChar *)"name");
-                    if (uri)
-                        printf("|*%s\n", uri);
+            }
+            else {
+                xmlChar *uri;
+                uri = xmlGetProp(cur, (xmlChar *)"name");
+                if (uri)
+                    printf("|*%s\n", uri);
 
                 printElementNames(cur->children);
             }

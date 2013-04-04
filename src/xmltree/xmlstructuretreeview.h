@@ -24,6 +24,7 @@ private:
     Ui::XMLStructureTreeView *ui;
 
     QStandardItemModel *_model;
+    QStandardItemModel *_xpath_result_model;
     QString _fileName;
 
     bool fillTreeModelWithData();

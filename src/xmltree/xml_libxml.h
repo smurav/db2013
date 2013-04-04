@@ -11,7 +11,9 @@ class QStandardItemModel;
 bool validateFileWithDTD(const char *filename);
 
 
-int execute_xpath_expression(const char* filename, const xmlChar *xpathExpr);
+int execute_xpath_expression(const char* filename,
+                             const xmlChar *xpathExpr,
+                             QStandardItemModel *model);
 
 void printElementNames(xmlNode * a_node);
 

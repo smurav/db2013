@@ -17,10 +17,11 @@ XMLStructureTreeView::XMLStructureTreeView(QWidget *parent, char *fileName) :
     ui->setupUi(this);
     _model = 0;
     _model = new QStandardItemModel;
-    if (0 == _model) {
+    _xpath_result_model = new QStandardItemModel;
+    if (0 == _model || 0 == _xpath_result_model) {
         qDebug() << "Memory fail : we haven't init _model yet";
         exit(-1);
-//        qApp->exit(-1);   // may be this?
+        //qApp->exit(-1);   // may be this?
     }
     ui->statusbar->showMessage(tr("Ready!"));
 
@@ -71,6 +72,11 @@ XMLStructureTreeView::~XMLStructureTreeView()
     {
         delete _model;
         _model = 0;
+    }
+    if (0 != _xpath_result_model)
+    {
+        delete _xpath_result_model;
+        _xpath_result_model = 0;
     }
 }
 
@@ -301,9 +307,18 @@ void XMLStructureTreeView::actionChoose_triggered()
         qDebug() << "Expressiom in C_str: " << xpath_expr_c;
         qDebug() << "filename : " << fileName_c;
 
-        int rc = execute_xpath_expression(fileName_c, (xmlChar *)xpath_expr_c);
+        _xpath_result_model->clear();
+        int rc = execute_xpath_expression(fileName_c,
+                                          (xmlChar *)xpath_expr_c,
+                                          _xpath_result_model);
         if (0 != rc) {
             qDebug() << "Smth bad with execute_xpath_expr";
+
+            qDebug() << "Кол-во строк в модели: "_xpath_result_model->rowCount();
+            ui->treeView->setModel(_xpath_result_model);
+        }
+        else {
+
         }
 
     }
