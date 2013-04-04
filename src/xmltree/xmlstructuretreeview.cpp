@@ -288,7 +288,6 @@ void XMLStructureTreeView::actionChoose_triggered()
     if(requestWindow.exec())
     {
         QString xpath_expr = requestWindow.getRequestLine();
-        qDebug() << xpath_expr;
 
         QByteArray buffBA;
 //        QString xpath_expr = "//student";
@@ -298,6 +297,9 @@ void XMLStructureTreeView::actionChoose_triggered()
 
         buffBA = xpath_expr.toUtf8();
         const char *xpath_expr_c = buffBA.constData();
+
+        qDebug() << "Your input: " << xpath_expr;
+        qDebug() << "Expressiom in C_str: " << (*xpath_expr_c);
 
         int rc = execute_xpath_expression(fileName_c, (xmlChar *)xpath_expr_c);
         if (0 != rc) {
