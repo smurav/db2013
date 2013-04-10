@@ -6,7 +6,16 @@
     <artist>Bob Dylan</artist>
     <country>USA</country>
     <company>Columbia</company>
-    <price>10.90</price>
+    <price>9.90</price>
     <year>1985</year>
+  </cd>
+
+  <cd>
+    <title>Yearsteday</title>
+    <artist>Beatles</artist>
+    <country>USA</country>
+    <company>Columbia</company>
+    <price>101.55</price>
+    <year>1991</year>
   </cd>
 </catalog>

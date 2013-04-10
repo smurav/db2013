@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="map.xsl"?>
+
+<osm version="0.6" generator="CGImap 0.1.0" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <bounds minlat="55.9449490" minlon="37.4944280" maxlat="55.9459740" maxlon="37.4959410"/>
+ <node id="1302853958" lat="55.9449673" lon="37.4958818" user="markhor" uid="440644" visible="true" version="2" changeset="11891118" timestamp="2012-06-14T03:39:08Z">
+  <tag k="barrier" v="entrance"/>
+ </node>
+ <node id="1774966000" lat="55.9449668" lon="37.4951682" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:05:00Z"/>
+ <node id="1774965998" lat="55.9449968" lon="37.4954230" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:05:00Z"/>
+ <node id="1774965895" lat="55.9450148" lon="37.4949644" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:04:58Z"/>
+ <node id="461998878" lat="55.9456874" lon="37.4946816" user="MAXimall" uid="128299" visible="true" version="1" changeset="2112961" timestamp="2009-08-11T21:45:11Z"/>
+ <node id="461998879" lat="55.9450589" lon="37.4946870" user="MAXimall" uid="128299" visible="true" version="1" changeset="2112961" timestamp="2009-08-11T21:45:11Z"/>
+ <node id="461998880" lat="55.9450594" lon="37.4948856" user="MAXimall" uid="128299" visible="true" version="1" changeset="2112961" timestamp="2009-08-11T21:45:11Z"/>
+ <node id="461998881" lat="55.9456880" lon="37.4948803" user="MAXimall" uid="128299" visible="true" version="1" changeset="2112961" timestamp="2009-08-11T21:45:11Z"/>
+ <node id="461998882" lat="55.9458618" lon="37.4954174" user="MAXimall" uid="128299" visible="true" version="1" changeset="2112961" timestamp="2009-08-11T21:45:11Z"/>
+ <node id="461998883" lat="55.9450498" lon="37.4954389" user="MAXimall" uid="128299" visible="true" version="1" changeset="2112961" timestamp="2009-08-11T21:45:11Z"/>
+ <node id="461998884" lat="55.9450518" lon="37.4956751" user="MAXimall" uid="128299" visible="true" version="1" changeset="2112961" timestamp="2009-08-11T21:45:11Z"/>
+ <node id="461998885" lat="55.9458638" lon="37.4956536" user="MAXimall" uid="128299" visible="true" version="1" changeset="2112961" timestamp="2009-08-11T21:45:12Z"/>
+ <node id="1274192195" lat="55.9450123" lon="37.4945031" user="markhor" uid="440644" visible="true" version="1" changeset="8064388" timestamp="2011-05-06T11:21:22Z"/>
+ <node id="1274192196" lat="55.9459300" lon="37.4945042" user="markhor" uid="440644" visible="true" version="1" changeset="8064388" timestamp="2011-05-06T11:21:22Z"/>
+ <node id="1274192198" lat="55.9450784" lon="37.4952702" user="markhor" uid="440644" visible="true" version="1" changeset="8064388" timestamp="2011-05-06T11:21:22Z"/>
+ <node id="1274192199" lat="55.9459394" lon="37.4952510" user="markhor" uid="440644" visible="true" version="2" changeset="8064573" timestamp="2011-05-06T11:30:46Z"/>
+ <node id="1274197583" lat="55.9459151" lon="37.4948975" user="markhor" uid="440644" visible="true" version="2" changeset="8070554" timestamp="2011-05-07T04:45:51Z"/>
+ <node id="1274197581" lat="55.9459094" lon="37.4946668" user="markhor" uid="440644" visible="true" version="2" changeset="8070554" timestamp="2011-05-07T04:45:51Z"/>
+ <node id="1274197587" lat="55.9458056" lon="37.4949061" user="markhor" uid="440644" visible="true" version="2" changeset="8070554" timestamp="2011-05-07T04:45:52Z"/>
+ <node id="1274197586" lat="55.9457999" lon="37.4946754" user="markhor" uid="440644" visible="true" version="2" changeset="8070554" timestamp="2011-05-07T04:45:52Z"/>
+
+ <node id="1274197585" lat="55.9458511" lon="37.4947925" user="markhor" uid="440644" visible="true" version="2" changeset="8070554" timestamp="2011-05-07T04:45:52Z">
+  <tag k="name" v="Продукты"/>
+  <tag k="shop" v="convenience"/>
+ </node>
+
+ <node id="1302853984" lat="55.9458929" lon="37.4958378" user="markhor" uid="440644" visible="true" version="1" changeset="8268238" timestamp="2011-05-28T03:54:25Z"/>
+ <node id="1304811865" lat="55.9449764" lon="37.4955010" user="markhor" uid="440644" visible="true" version="1" changeset="8281339" timestamp="2011-05-29T14:04:00Z"/>
+ <node id="254400355" lat="55.9459898" lon="37.4992391" user="Ezhick" uid="70742" visible="true" version="2" changeset="2928994" timestamp="2009-10-23T13:05:45Z"/>
+ <node id="1274174131" lat="55.9446298" lon="37.4937323" user="markhor" uid="440644" visible="true" version="2" changeset="11788227" timestamp="2012-06-03T16:05:02Z"/>
+ <node id="1274192200" lat="55.9467636" lon="37.4952327" user="markhor" uid="440644" visible="true" version="1" changeset="8064388" timestamp="2011-05-06T11:21:22Z"/>
+ <node id="1274192202" lat="55.9459486" lon="37.4959798" user="markhor" uid="440644" visible="true" version="2" changeset="8064573" timestamp="2011-05-06T11:30:46Z"/>
+ <node id="1274192204" lat="55.9459574" lon="37.4966768" user="markhor" uid="440644" visible="true" version="2" changeset="8064573" timestamp="2011-05-06T11:30:46Z"/>
+ <node id="1274192206" lat="55.9459666" lon="37.4974029" user="markhor" uid="440644" visible="true" version="2" changeset="8064573" timestamp="2011-05-06T11:30:47Z"/>
+ <node id="1274192919" lat="55.9459903" lon="37.4991593" user="markhor" uid="440644" visible="true" version="3" changeset="11789415" timestamp="2012-06-03T18:00:59Z"/>
+ <node id="1274192930" lat="55.9459748" lon="37.4980511" user="markhor" uid="440644" visible="true" version="3" changeset="11789415" timestamp="2012-06-03T18:00:59Z"/>
+ <node id="1274192934" lat="55.9459839" lon="37.4987720" user="markhor" uid="440644" visible="true" version="2" changeset="8064573" timestamp="2011-05-06T11:30:46Z"/>
+ <node id="1300610248" lat="55.9444599" lon="37.4938642" user="markhor" uid="440644" visible="true" version="1" changeset="8252671" timestamp="2011-05-26T12:19:37Z"/>
+ <node id="1300610250" lat="55.9442124" lon="37.4927117" user="markhor" uid="440644" visible="true" version="1" changeset="8252671" timestamp="2011-05-26T12:19:37Z"/>
+ <node id="1302853956" lat="55.9455110" lon="37.4984245" user="markhor" uid="440644" visible="true" version="1" changeset="8268238" timestamp="2011-05-28T03:54:24Z"/>
+ <node id="1302853957" lat="55.9459498" lon="37.4960726" user="markhor" uid="440644" visible="true" version="1" changeset="8268238" timestamp="2011-05-28T03:54:24Z"/>
+ <node id="1302853966" lat="55.9459285" lon="37.4983977" user="markhor" uid="440644" visible="true" version="1" changeset="8268238" timestamp="2011-05-28T03:54:25Z"/>
+ <node id="1302853983" lat="55.9458963" lon="37.4960780" user="markhor" uid="440644" visible="true" version="1" changeset="8268238" timestamp="2011-05-28T03:54:25Z">
+  <tag k="barrier" v="gate"/>
+ </node>
+ <node id="1304811857" lat="55.9448847" lon="37.4958425" user="markhor" uid="440644" visible="true" version="1" changeset="8281339" timestamp="2011-05-29T14:04:00Z"/>
+ <node id="1304811860" lat="55.9448442" lon="37.4944818" user="markhor" uid="440644" visible="true" version="1" changeset="8281339" timestamp="2011-05-29T14:04:00Z"/>
+ <node id="1304811861" lat="55.9445950" lon="37.4941599" user="markhor" uid="440644" visible="true" version="1" changeset="8281339" timestamp="2011-05-29T14:04:00Z"/>
+ <node id="1304811866" lat="55.9447301" lon="37.4943638" user="markhor" uid="440644" visible="true" version="1" changeset="8281339" timestamp="2011-05-29T14:04:00Z"/>
+ <node id="1519894295" lat="55.9459147" lon="37.4974053" user="markhor" uid="440644" visible="true" version="2" changeset="11891118" timestamp="2012-06-14T03:39:08Z">
+  <tag k="barrier" v="entrance"/>
+ </node>
+ <node id="1519894311" lat="55.9450666" lon="37.4959944" user="markhor" uid="440644" visible="true" version="1" changeset="9969387" timestamp="2011-11-27T17:11:16Z"/>
+ <node id="1774965907" lat="55.9448793" lon="37.4958175" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:04:58Z"/>
+ <node id="1774965912" lat="55.9448196" lon="37.4949778" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:04:59Z"/>
+ <node id="1774965926" lat="55.9447310" lon="37.4947578" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:04:59Z"/>
+ <node id="1774965931" lat="55.9446273" lon="37.4941517" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:04:59Z"/>
+ <node id="1774965947" lat="55.9444095" lon="37.4927274" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:04:59Z"/>
+ <node id="1774965954" lat="55.9448045" lon="37.4944011" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:04:59Z"/>
+ <node id="1774965958" lat="55.9446293" lon="37.4934900" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:05:00Z"/>
+ <node id="1774965962" lat="55.9444095" lon="37.4927021" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:05:00Z"/>
+ <node id="1774965986" lat="55.9447911" lon="37.4930069" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:05:00Z"/>
+ <node id="1774966003" lat="55.9444215" lon="37.4931029" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:05:00Z"/>
+ <node id="1774966005" lat="55.9447958" lon="37.4934887" user="markhor" uid="440644" visible="true" version="1" changeset="11788227" timestamp="2012-06-03T16:05:00Z"/>
+ <node id="1775021627" lat="55.9442189" lon="37.4926544" user="markhor" uid="440644" visible="true" version="1" changeset="11788574" timestamp="2012-06-03T16:41:12Z"/>
+ <node id="1775021674" lat="55.9444109" lon="37.4926479" user="markhor" uid="440644" visible="true" version="1" changeset="11788574" timestamp="2012-06-03T16:41:13Z"/>
+ <way id="115233643" user="markhor" uid="440644" visible="true" version="3" changeset="11891118" timestamp="2012-06-14T03:39:08Z">
+  <nd ref="1302853984"/>
+  <nd ref="1302853958"/>
+  <nd ref="1302853956"/>
+  <nd ref="1302853966"/>
+  <nd ref="1519894295"/>
+  <nd ref="1302853983"/>
+  <nd ref="1302853984"/>
+  <tag k="barrier" v="fence"/>
+ </way>
+ <way id="111986196" user="markhor" uid="440644" visible="true" version="1" changeset="8064573" timestamp="2011-05-06T11:30:45Z">
+  <nd ref="1274197581"/>
+  <nd ref="1274197586"/>
+  <nd ref="1274197587"/>
+  <nd ref="1274197583"/>
+  <nd ref="1274197581"/>
+  <tag k="building" v="yes"/>
+ </way>
+ <way id="23492326" user="markhor" uid="440644" visible="true" version="8" changeset="10911855" timestamp="2012-03-08T18:17:54Z">
+  <nd ref="1274192195"/>
+  <nd ref="1274192196"/>
+  <nd ref="1274192199"/>
+  <nd ref="1274192202"/>
+  <nd ref="1302853957"/>
+  <nd ref="1274192204"/>
+  <nd ref="1274192206"/>
+  <nd ref="1274192930"/>
+  <nd ref="1274192934"/>
+  <nd ref="1274192919"/>
+  <nd ref="254400355"/>
+  <tag k="addr:postcode" v="141707"/>
+  <tag k="cladr:code" v="50000029000000600"/>
+  <tag k="cladr:name" v="Железнякова"/>
+  <tag k="cladr:suffix" v="Улица"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="улица Железнякова"/>
+ </way>
+ <way id="166003904" user="markhor" uid="440644" visible="true" version="2" changeset="11788574" timestamp="2012-06-03T16:41:15Z">
+  <nd ref="1300610250"/>
+  <nd ref="1775021627"/>
+  <nd ref="1775021674"/>
+  <nd ref="1774965962"/>
+  <nd ref="1774965947"/>
+  <nd ref="1774966003"/>
+  <nd ref="1774965986"/>
+  <nd ref="1774966005"/>
+  <nd ref="1774965958"/>
+  <nd ref="1274174131"/>
+  <nd ref="1774965931"/>
+  <nd ref="1774965954"/>
+  <nd ref="1774965926"/>
+  <nd ref="1774965912"/>
+  <nd ref="1774965895"/>
+  <nd ref="1774966000"/>
+  <nd ref="1774965998"/>
+  <nd ref="1774965907"/>
+  <nd ref="1300610250"/>
+  <tag k="landuse" v="grass"/>
+ </way>
+ <way id="38892617" user="markhor" uid="440644" visible="true" version="4" changeset="10307937" timestamp="2012-01-06T05:04:53Z">
+  <nd ref="461998882"/>
+  <nd ref="461998885"/>
+  <nd ref="461998884"/>
+  <nd ref="461998883"/>
+  <nd ref="461998882"/>
+  <tag k="addr:housenumber" v="7"/>
+  <tag k="addr:street" v="улица Железнякова"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="5"/>
+  <tag k="cladr:code" v="50000029000000600"/>
+ </way>
+ <way id="138606743" user="markhor" uid="440644" visible="true" version="1" changeset="9969387" timestamp="2011-11-27T17:11:17Z">
+  <nd ref="1519894311"/>
+  <nd ref="1302853958"/>
+  <nd ref="1304811857"/>
+  <tag k="highway" v="footway"/>
+ </way>
+ <way id="115508775" user="markhor" uid="440644" visible="true" version="1" changeset="8281339" timestamp="2011-05-29T14:04:00Z">
+  <nd ref="1300610248"/>
+  <nd ref="1304811861"/>
+  <nd ref="1304811866"/>
+  <nd ref="1304811860"/>
+  <nd ref="1274192195"/>
+  <tag k="highway" v="footway"/>
+ </way>
+ <way id="115508777" user="markhor" uid="440644" visible="true" version="1" changeset="8281339" timestamp="2011-05-29T14:04:01Z">
+  <nd ref="1274192198"/>
+  <nd ref="1304811865"/>
+  <nd ref="1304811857"/>
+  <tag k="highway" v="footway"/>
+ </way>
+ <way id="111985618" user="markhor" uid="440644" visible="true" version="1" changeset="8064388" timestamp="2011-05-06T11:21:23Z">
+  <nd ref="1274192198"/>
+  <nd ref="1274192199"/>
+  <nd ref="1274192200"/>
+  <tag k="highway" v="service"/>
+ </way>
+ <way id="38892616" user="markhor" uid="440644" visible="true" version="4" changeset="10307937" timestamp="2012-01-06T05:04:53Z">
+  <nd ref="461998878"/>
+  <nd ref="461998881"/>
+  <nd ref="461998880"/>
+  <nd ref="461998879"/>
+  <nd ref="461998878"/>
+  <tag k="addr:housenumber" v="5"/>
+  <tag k="addr:street" v="улица Железнякова"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="5"/>
+  <tag k="cladr:code" v="50000029000000600"/>
+ </way>
+</osm>
