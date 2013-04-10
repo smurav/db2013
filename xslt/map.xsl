@@ -44,17 +44,16 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 
 
-
+<!--
 <xsl:template name="show_points" match="node">
 <xsl:param name="testparam" />
-     <xsl:if test="$testparam"> <!-- If we pass any argument -->
-        <!-- Reference in param: <xsl:value-of select="$testparam" /> -->
+      <xsl:if test="$testparam">
         <xsl:if test="$testparam = @id">
             lat: <xsl:value-of select="attribute::lat" /> <br />
             lon: <xsl:value-of select="attribute::lat" /> <br />
         </xsl:if>
      </xsl:if>
-</xsl:template>
+</xsl:template>  -->
 
 
 <xsl:template match="node">
