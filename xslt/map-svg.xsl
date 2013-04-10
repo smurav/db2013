@@ -5,12 +5,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output indent="yes" />
 
 <xsl:template match="/">
-  <html>
-  <body>
-    <h2>Points:</h2>
-    <xsl:apply-templates select="/osm/way" />
-  </body>
-  </html>
+  <svg>
+
+    <!-- <xsl:apply-templates select="/osm/way" /> -->
+
+  </svg>
 </xsl:template>
 
 
