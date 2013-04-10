@@ -149,6 +149,7 @@ int execute_xpath_expression(const char *filename,
                 uri = xmlGetProp(cur, (xmlChar *)"name");
                 if (uri)
                     printf("|*%s\n", uri);
+                    qDebug() << "|* " << (char *)uri;
 
                 printElementNames(cur->children);
             }
@@ -187,13 +188,16 @@ void printElementNames(xmlNode *a_node)
             xmlChar *uri;
             // We interested only in attrs 'name'
             uri = xmlGetProp(cur_node, (xmlChar *)"name");
-            if (uri)
+            if (uri) {
                 printf("%s\n", uri);
-            else                    // perhaps, it's 'group' tag
+                qDebug() << "* " << (char *)uri;
+            }
+            else {                   // perhaps, it's 'group' tag
                 printf("%s %s, %s\n", cur_node->name,
                        xmlGetProp(cur_node, (xmlChar *)"number"),
                        xmlGetProp(cur_node, (xmlChar *)"entering")
                        );
+            }
         }
         // print information about children
         deep++;

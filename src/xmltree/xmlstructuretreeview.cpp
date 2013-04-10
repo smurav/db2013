@@ -314,7 +314,7 @@ void XMLStructureTreeView::actionChoose_triggered()
         if (0 != rc) {
             qDebug() << "Smth bad with execute_xpath_expr";
 
-            qDebug() << "Кол-во строк в модели: "_xpath_result_model->rowCount();
+            qDebug() << "Кол-во строк в модели: " << _xpath_result_model->rowCount();
             ui->treeView->setModel(_xpath_result_model);
         }
         else {
